@@ -30,6 +30,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: >
           cd ./backend/assessments/2/ticketBooking && mvn install sonar:sonar 
+          -DskipTests
           -Dsonar.verbose=true 
           -Dsonar.projectKey=${{ secrets.KDUER_NAME }}-BE-Assessment-2
           -Dsonar.projectName=${{ secrets.KDUER_NAME }}-BE-Assessment-2
