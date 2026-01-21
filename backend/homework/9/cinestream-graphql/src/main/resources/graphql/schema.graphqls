@@ -1,0 +1,45 @@
+type Query {
+    findMovieById(id: ID!): Movie
+    findAllMovies: [Movie]
+    findDirectorById(id: ID!): Director
+}
+
+type Mutation {
+    addDirector(
+        id: ID!
+        name: String!
+        totalAwards: Int!
+    ): Director
+
+    addMovie(
+        id: ID!
+        title: String!
+        genre: String!
+        directorId: ID!
+    ): Movie
+
+    addReview(
+        movieId: ID!,
+        comment: String!,
+        rating: Int!
+    ): Movie
+}
+
+type Movie {
+    id: ID!
+    title: String!
+    genre: String!
+    director: Director
+    reviews: [Review]
+}
+
+type Director {
+    id: ID!
+    name: String!
+    totalAwards: Int!
+}
+
+type Review {
+    comment: String!
+    rating: Int!
+}
