@@ -1,0 +1,85 @@
+@use '../abstracts' as *;
+
+.feature-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $LG;
+    background: $background-white;
+    border-radius: $SM;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid $border-color;
+    position: relative;
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+
+    h3 {
+        margin-bottom: $SM;
+        color: $text-dark;
+        font-size: $MD;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10%;
+        margin-bottom: $SM;
+    }
+
+    p {
+        text-align: center;
+        font-style: italic;
+        color: $text-light;
+        line-height: $line-height;
+        font-size: $SM;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: $SM 0;
+        text-align: left;
+        width: 100%;
+        color: $text-light;
+        font-size: $SM;
+    }
+
+    .enroll-div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: auto;
+        padding-top: $MD;
+
+        span {
+            font-size: $LG;
+            font-weight: 700;
+            color: $text-dark;
+        }
+
+        a {
+            padding: 0.6rem 1.2rem;
+            font-size: $SM;
+        }
+    }
+
+    .badge {
+        position: absolute;
+        top: $MD;
+        right: $MD;
+        background-color: $accent;
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: $SM;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+}

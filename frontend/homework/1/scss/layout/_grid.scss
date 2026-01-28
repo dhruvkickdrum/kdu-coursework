@@ -1,0 +1,12 @@
+@use '../abstracts' as *;
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $LG;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

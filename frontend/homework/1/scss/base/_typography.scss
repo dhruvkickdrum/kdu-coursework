@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+section {
+    padding-bottom: 5%;
+    padding-top: 2%;
+
+    @media (max-width: 768px) {
+        padding-bottom: 3rem;
+    }
+
+    @media (max-width: 480px) {
+        padding-bottom: 2rem;
+    }
+}

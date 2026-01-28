@@ -1,0 +1,199 @@
+@use '../abstracts' as *;
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    gap: $SM;
+    min-height: 80vh;
+
+    @media (max-width: 1024px) {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-text {
+        align-content: center;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: $SM;
+        flex: 1;
+
+        @media (max-width: 1024px) {
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: $SM;
+
+            @media (max-width: 768px) {
+                font-size: 1.5rem;
+            }
+        }
+        
+        p {
+            color: $text-light;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: $SM;
+            margin-top: $MD;
+        }
+    }
+
+    .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        border-radius: 2rem;
+
+        img {
+            height: auto;
+            width: 100%;
+            max-width: 600px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 2rem;
+            box-shadow: 0 1px 10px #cecdcd, 0 1px 10px #cecdcd;
+        }
+    }
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, $primary 0%, $secondary 100%);
+    color: $background-white;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        b {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+
+            @media (max-width: 768px) {
+                font-size: 2.5rem;
+            }
+        }
+
+        span {
+            font-size: 1.1rem;
+            opacity: 0.95;
+
+            @media (max-width: 768px) {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.features {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2.25rem;
+        color: $text-dark;
+        font-weight: 700;
+        position: relative;
+
+        span {
+            color: $primary;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 1.875rem;
+            margin-bottom: 2rem;
+        }
+
+        @include section-underline;
+    }
+
+    p {
+        text-align: center;
+        color: $text-light;
+        margin-bottom: $LG;
+    }
+}
+
+.testimonials {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: $background-gray;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: $text-dark;
+
+        @media (max-width: 768px) {
+            font-size: 1.875rem;
+            margin-bottom: 2rem;
+        }
+
+        @include section-underline;
+    }
+
+    p {
+        text-align: center;
+        color: $text-light;
+        margin-bottom: $LG;
+    }
+
+    .feature-box {
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: $text-dark;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin-bottom: 1rem;
+        }
+    }
+}

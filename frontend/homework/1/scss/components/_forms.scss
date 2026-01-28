@@ -1,0 +1,101 @@
+@use '../abstracts' as *;
+
+.contact-form {
+    max-width: 100%;
+    background: $background-white;
+    padding: 2.5rem;
+    border-radius: $SM;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    @media (max-width: 768px) {
+        padding: $LG;
+        gap: $SM;
+    }
+
+    @media (max-width: 480px) {
+        padding: $MD;
+    }
+
+    label {
+        font-weight: 600;
+        color: $text-dark;
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+    }
+
+    input, select, textarea {
+        padding: 0.875rem;
+        border-radius: 0.5rem;
+        border: 1px solid $border-color;
+        font-size: 1rem;
+        width: 100%;
+        font-family: inherit;
+        transition: all 0.2s;
+
+        &:focus {
+            outline: none;
+            border-color: $primary;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        &:invalid:not(:placeholder-shown) {
+            border-color: #ef4444;
+        }
+
+        &:valid:not(:placeholder-shown) {
+            border-color: #10b981;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 150px;
+    }
+
+    .radio-group,
+    .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+
+    input[type="submit"] {
+        margin-top: $SM;
+        background-color: $primary;
+        color: $background-white;
+        border: none;
+        padding: $SM;
+        font-size: $SM;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: $XS;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: darken($primary, 8%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+}
