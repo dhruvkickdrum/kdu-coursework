@@ -1,0 +1,22 @@
+@use '../abstract' as *;
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+}
+
+p {
+  line-height: $line-height-relaxed;
+  color: $color-text-primary;
+}
+
+a {
+  color: $color-primary;
+  transition: color $transition-base;
+  
+  &:hover {
+    color: $color-primary-hover;
+  }
+}
+

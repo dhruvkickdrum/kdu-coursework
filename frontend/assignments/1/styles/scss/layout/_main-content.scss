@@ -1,0 +1,23 @@
+@use '../abstract' as *;
+
+.main-content {
+  @include desktop {
+    width: 600px;
+    max-width: 600px;
+    margin: 0;
+    min-height: 100vh;
+    border-left: 1px solid $color-border;
+    border-right: 1px solid $color-border;
+    position: relative;
+  }
+  
+  @include mobile {
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 100px;
+    padding-top: 60px;
+    overflow-x: hidden;
+  }
+}
+
+

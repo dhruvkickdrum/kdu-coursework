@@ -1,0 +1,357 @@
+@use '../abstract' as *;
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 100%;
+  
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+    overflow-x: hidden;
+  }
+
+  @include desktop {
+    align-items: flex-start;
+    padding-left: $nav-width-desktop;
+    gap: $spacing-xl;
+  }
+}
+
+.navigation-section {
+  background-color: $color-background;
+  z-index: $z-index-sticky;
+  
+  @include desktop {
+    position: fixed;
+    height: 100vh;
+    width: $nav-width-desktop;
+    left: 0;
+    top: 0;
+    border-right: 1px solid $color-border;
+  }
+  
+  @include mobile {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    top: 0;
+    left: 0;
+  }
+}
+
+// Desktop Navigation
+.nav-desktop {
+  @include mobile {
+    display: none;
+  }
+  
+  @include desktop {
+    @include flex-column;
+    height: 100vh;
+    padding: $spacing-md;
+    overflow-y: auto;
+    overflow-x: hidden;
+    @include custom-scrollbar;
+  }
+  
+  .nav-logo {
+    padding: $spacing-md 0;
+    margin-bottom: $spacing-lg;
+    flex-shrink: 0;
+    
+    .logo-icon {
+      @include icon-size(28px);
+      fill: $color-text-primary;
+    }
+  }
+  
+  .nav-menu {
+    @include flex-column;
+    gap: $spacing-xs;
+    flex-shrink: 0;
+    
+      .nav-item {
+        @include flex-start;
+        gap: $spacing-md;
+        padding: $spacing-sm $spacing-md;
+        border-radius: $radius-full;
+        cursor: pointer;
+        transition: background-color $transition-base;
+        color: $color-text-primary;
+        width: fit-content;
+        
+        &:hover {
+          background-color: $color-surface-hover;
+        }
+        
+        &.active {
+          font-weight: $font-weight-bold;
+        }
+        
+        .nav-icon {
+          @include icon-size(26.25px);
+          fill: currentColor;
+        }
+        
+        span {
+          font-size: $font-size-lg;
+        }
+      }
+  }
+  
+  .nav-tweet-btn {
+    @include button-primary;
+    width: 88%;
+    padding: $spacing-sm $spacing-lg;
+    margin: $spacing-sm auto $spacing-md;
+    font-size: $font-size-base;
+    display: block;
+    flex-shrink: 0;
+  }
+  
+  .user-profile {
+    @include flex-between;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-xl;
+    cursor: pointer;
+    transition: background-color $transition-base;
+    margin-top: auto;
+    flex-shrink: 0;
+    
+    &:hover {
+      background-color: $color-surface-hover;
+    }
+    
+    .profile-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: $radius-full;
+      background-color: $color-primary;
+      @include flex-center;
+      font-weight: $font-weight-bold;
+      color: $color-text-primary;
+      font-size: $font-size-base;
+    }
+    
+    .profile-info {
+      @include flex-column;
+      flex: 1;
+      margin-left: $spacing-md;
+      
+      .profile-name {
+        font-weight: $font-weight-bold;
+        font-size: $font-size-sm;
+      }
+      
+      .profile-handle {
+        color: $color-text-secondary;
+        font-size: $font-size-xs;
+      }
+    }
+    
+    .more-icon {
+      @include icon-size(20px);
+      fill: $color-text-primary;
+    }
+  }
+}
+
+// Mobile Navigation
+  .nav-mobile {
+  @include desktop {
+    display: none;
+  }
+  
+  @include mobile {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $z-index-sticky;
+    background-color: $color-background;
+  }
+  
+  .mobile-header {
+    @include flex-between;
+    align-items: center;
+    padding: $spacing-md;
+    border-bottom: 1px solid $color-border;
+    background-color: $color-background;
+    
+    .hamburger-menu {
+      @include flex-column;
+      gap: 4px;
+      padding: $spacing-sm;
+      background: transparent;
+      cursor: pointer;
+      
+      .hamburger-line {
+        width: 24px;
+        height: 2px;
+        background-color: $color-text-primary;
+        border-radius: $radius-sm;
+        transition: all $transition-base;
+      }
+      
+      &.active {
+        .hamburger-line {
+          &:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+          }
+        }
+      }
+    }
+    
+    .mobile-logo {
+      .logo-icon {
+        @include icon-size(28px);
+        fill: $color-text-primary;
+      }
+    }
+  }
+  
+  .mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: $z-index-modal - 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $transition-slow, visibility $transition-slow;
+    
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  .mobile-nav-slider {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: min(#{$nav-width-mobile}, 85vw);
+    height: 100vh;
+    background-color: $color-background;
+    z-index: $z-index-modal;
+    transition: left $transition-slow;
+    overflow-y: auto;
+    @include custom-scrollbar;
+    
+    &.active {
+      left: 0;
+    }
+    
+    .mobile-nav-content {
+      padding: $spacing-md;
+      
+      .mobile-user-profile {
+        position: relative;
+        padding-bottom: $spacing-lg;
+        border-bottom: 1px solid $color-border;
+        margin-bottom: $spacing-lg;
+        
+        .profile-avatar {
+          width: 52px;
+          height: 52px;
+          border-radius: $radius-full;
+          background-color: $color-primary;
+          @include flex-center;
+          font-weight: $font-weight-bold;
+          color: $color-text-primary;
+          font-size: $font-size-xl;
+          margin-bottom: $spacing-md;
+        }
+        
+        .profile-info {
+          @include flex-column;
+          margin-bottom: $spacing-sm;
+          
+          .profile-name {
+            font-weight: $font-weight-bold;
+            font-size: $font-size-lg;
+            margin-bottom: $spacing-xs;
+          }
+          
+          .profile-handle {
+            color: $color-text-secondary;
+            font-size: $font-size-sm;
+          }
+        }
+        
+        .profile-stats {
+          @include flex-start;
+          gap: $spacing-md;
+          color: $color-text-secondary;
+          font-size: $font-size-xs;
+          margin-bottom: $spacing-md;
+        }
+        
+        .add-account-btn {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 36px;
+          height: 36px;
+          border-radius: $radius-full;
+          border: 1px solid $color-border;
+          @include flex-center;
+          color: $color-text-primary;
+          font-size: $font-size-xl;
+          background-color: transparent;
+          transition: background-color $transition-base;
+          
+          &:hover {
+            background-color: $color-surface-hover;
+          }
+        }
+      }
+      
+      .mobile-nav-menu {
+        @include flex-column;
+        gap: $spacing-xs;
+        
+        .nav-item {
+          @include flex-start;
+          gap: $spacing-sm;
+          padding: $spacing-sm;
+          border-radius: $radius-lg;
+          cursor: pointer;
+          transition: background-color $transition-base;
+          color: $color-text-primary;
+          
+          &:hover {
+            background-color: $color-surface-hover;
+          }
+          
+          .nav-icon {
+            @include icon-size(22px);
+            fill: currentColor;
+          }
+          
+          span {
+            font-size: $font-size-base;
+          }
+        }
+      }
+    }
+  }
+}
+
+.profile-icon {
+  @include icon-size(32px);
+  cursor: pointer;
+}
+

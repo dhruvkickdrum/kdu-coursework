@@ -1,0 +1,464 @@
+@use '../abstract' as *;
+
+.posts {
+  @include flex-column;
+  width: 100%;
+  
+  .post {
+    border-bottom: 1px solid $color-border;
+    padding: $spacing-md $spacing-lg;
+    transition: background-color $transition-base;
+    cursor: pointer;
+    
+    @include mobile {
+      padding: $spacing-sm $spacing-md;
+      border-bottom: 1px solid $color-border;
+    }
+    
+    &:hover {
+      background-color: $color-surface;
+    }
+    
+    @include mobile {
+      &:hover {
+        background-color: transparent;
+      }
+    }
+    
+    .post-header {
+      @include flex-start;
+      gap: $spacing-md;
+      margin-bottom: $spacing-sm;
+      min-width: 0;
+      
+      @include mobile {
+        gap: $spacing-sm;
+        margin-bottom: $spacing-xs;
+      }
+      
+      .post-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: $radius-full;
+        background-color: $color-primary;
+        @include flex-center;
+        font-weight: $font-weight-bold;
+        color: $color-text-primary;
+        font-size: $font-size-lg;
+        flex-shrink: 0;
+        
+        @include mobile {
+          width: 28px;
+          height: 28px;
+          font-size: $font-size-sm;
+        }
+      }
+      
+      .post-user-info {
+        @include flex-start;
+        gap: $spacing-sm;
+        flex-wrap: wrap;
+        min-width: 0;
+        
+        @include mobile {
+          gap: $spacing-xs;
+          font-size: $font-size-sm;
+        }
+        
+        .post-username {
+          font-weight: $font-weight-bold;
+          color: $color-text-primary;
+          font-size: $font-size-base;
+          
+          @include mobile {
+            font-size: $font-size-sm;
+          }
+        }
+        
+        .post-handle {
+          color: $color-text-secondary;
+          font-size: $font-size-sm;
+          
+          @include mobile {
+            font-size: $font-size-xs;
+          }
+        }
+        
+        .post-time {
+          color: $color-text-secondary;
+          font-size: $font-size-sm;
+          
+          @include mobile {
+            font-size: $font-size-xs;
+          }
+        }
+      }
+      
+      .post-more {
+        margin-left: auto;
+        @include flex-center;
+        width: 32px;
+        height: 32px;
+        border-radius: $radius-full;
+        transition: background-color $transition-base;
+        
+        &:hover {
+          background-color: rgba($color-primary, 0.1);
+        }
+        
+        img {
+          @include icon-size(20px);
+        }
+      }
+    }
+    
+    .post-content {
+      margin-left: 52px;
+      margin-bottom: $spacing-md;
+      min-width: 0;
+      
+      @include mobile {
+        margin-left: 44px;
+        margin-bottom: $spacing-sm;
+      }
+      
+      .post-text {
+        color: $color-text-primary;
+        font-size: $font-size-base;
+        line-height: $line-height-relaxed;
+        word-wrap: break-word;
+        margin-bottom: $spacing-sm;
+        white-space: pre-wrap;
+        
+        @include mobile {
+          font-size: $font-size-sm;
+          line-height: $line-height-normal;
+        }
+        
+        .hashtag {
+          color: $color-primary;
+          cursor: pointer;
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      
+      .post-media {
+        border-radius: $radius-lg;
+        overflow: hidden;
+        margin-top: $spacing-md;
+        max-width: 100%;
+        border: 1px solid $color-border;
+        
+        &.single {
+          img, video {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            display: block;
+          }
+        }
+        
+        &.multiple {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2px;
+          
+          img, video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+          }
+        }
+        
+        img, video {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+      }
+    }
+    
+    .post-actions {
+      @include flex-start;
+      gap: $spacing-xl;
+      margin-left: 52px;
+      padding-top: $spacing-sm;
+      max-width: 425px;
+      min-width: 0;
+      
+      @include mobile {
+        gap: $spacing-md;
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-left: 44px;
+        padding-top: $spacing-xs;
+      }
+      
+      .action-item {
+        @include flex-start;
+        gap: $spacing-xs;
+        color: $color-text-secondary;
+        transition: all $transition-base;
+        cursor: pointer;
+        position: relative;
+        padding: $spacing-xs;
+        border-radius: $radius-full;
+        margin-left: -$spacing-xs;
+        
+        @include mobile {
+          padding: 0;
+          margin-left: 0;
+        }
+        
+        &:hover {
+          color: $color-primary;
+          background-color: rgba($color-primary, 0.1);
+        }
+        
+        .action-icon {
+          @include icon-size(18.75px);
+          fill: currentColor;
+          transition: all $transition-base;
+          
+          @include mobile {
+            @include icon-size(18px);
+          }
+        }
+        
+        .action-count {
+          font-size: $font-size-sm;
+          min-width: 20px;
+          font-weight: $font-weight-normal;
+          
+          @include mobile {
+            display: none;
+          }
+        }
+        
+        &.reply {
+          &:hover {
+            color: $color-primary;
+          }
+        }
+        
+        &.retweet {
+          &.active {
+            color: $color-retweet;
+            
+            .action-icon {
+              fill: $color-retweet;
+            }
+            
+            &:hover {
+              background-color: rgba($color-retweet, 0.1);
+            }
+          }
+          
+          &:hover {
+            color: $color-retweet;
+            background-color: rgba($color-retweet, 0.1);
+          }
+        }
+        
+        &.like {
+          &.active {
+            color: $color-like;
+            
+            .action-icon {
+              fill: $color-like;
+            }
+            
+            &:hover {
+              background-color: rgba($color-like, 0.1);
+            }
+          }
+          
+          &:hover {
+            color: $color-like;
+            background-color: rgba($color-like, 0.1);
+          }
+        }
+        
+        &.analytics,
+        &.bookmark,
+        &.share {
+          &:hover {
+            color: $color-primary;
+          }
+        }
+        
+        @include mobile {
+          &.analytics {
+            display: none;
+          }
+        }
+      }
+    }
+    
+    .post-comments {
+      margin-left: 52px;
+      margin-top: $spacing-md;
+      padding-top: $spacing-md;
+      border-top: 1px solid $color-border;
+      
+      @include mobile {
+        display: none;
+        margin-left: 44px;
+        margin-top: $spacing-sm;
+        padding-top: $spacing-sm;
+      }
+      
+      .comments-list {
+        @include flex-column;
+        gap: $spacing-md;
+        margin-bottom: $spacing-md;
+        
+        .comment {
+          @include flex-start;
+          gap: $spacing-sm;
+          
+          .comment-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: $radius-full;
+            background-color: $color-primary;
+            @include flex-center;
+            font-weight: $font-weight-bold;
+            color: $color-text-primary;
+            font-size: $font-size-sm;
+            flex-shrink: 0;
+          }
+          
+          .comment-content {
+            @include flex-column;
+            flex: 1;
+            
+            .comment-header {
+              @include flex-start;
+              gap: $spacing-sm;
+              margin-bottom: $spacing-xs;
+              
+              .comment-username {
+                font-weight: $font-weight-bold;
+                font-size: $font-size-sm;
+                color: $color-text-primary;
+              }
+              
+              .comment-time {
+                color: $color-text-secondary;
+                font-size: $font-size-xs;
+              }
+            }
+            
+            .comment-text {
+              color: $color-text-primary;
+              font-size: $font-size-sm;
+              line-height: $line-height-normal;
+            }
+          }
+        }
+      }
+      
+      .comment-input {
+        @include flex-start;
+        gap: $spacing-sm;
+        min-width: 0;
+        align-items: center;
+        
+        @include mobile {
+          gap: $spacing-xs;
+          align-items: center;
+        }
+        
+        .comment-avatar {
+          width: 32px;
+          height: 32px;
+          border-radius: $radius-full;
+          background-color: $color-primary;
+          @include flex-center;
+          font-weight: $font-weight-bold;
+          color: $color-text-primary;
+          font-size: $font-size-sm;
+          flex-shrink: 0;
+        }
+        
+        .comment-form {
+          @include flex-start;
+          gap: $spacing-sm;
+          flex: 1;
+          min-width: 0;
+          
+          @include mobile {
+            gap: $spacing-xs;
+          }
+          
+          input {
+            flex: 1;
+            padding: $spacing-sm $spacing-md;
+            border: 1px solid $color-border;
+            border-radius: $radius-full;
+            color: $color-text-primary;
+            background-color: $color-surface;
+            font-size: $font-size-sm;
+            min-width: 0;
+            
+            &::placeholder {
+              color: $color-text-secondary;
+            }
+            
+            &:focus {
+              border-color: $color-primary;
+            }
+          }
+          
+          button {
+            @include button-primary;
+            padding: $spacing-sm $spacing-lg;
+            font-size: $font-size-sm;
+            flex-shrink: 0;
+            
+            @include mobile {
+              padding: $spacing-sm $spacing-md;
+              font-size: $font-size-xs;
+              min-width: 64px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .post.show-comments {
+    .post-comments {
+      display: block;
+    }
+  }
+}
+
+.like-post {
+  .action-icon {
+    fill: $color-like !important;
+  }
+  
+  color: $color-like !important;
+}
+
+.unlike-post {
+  .action-icon {
+    fill: currentColor;
+  }
+  
+  color: $color-text-secondary;
+}
+
+.likes-count {
+  font-size: $font-size-sm;
+  min-width: 20px;
+}
+
