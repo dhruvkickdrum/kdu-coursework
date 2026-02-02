@@ -1,0 +1,14 @@
+DEPARTMENT: HR
+
+DEPARTMENT OVERVIEW :- 
+Department Name: HR
+Number of Employees: 2
+Total Salary: $137,000
+Average Salary: $68,500
+
+EMPLOYEE LIST
+Name                      Salary
+Bob Smith                 $62,000
+Davis Lee                 $75,000
+
+Report Generated: 2/2/2026, 11:05:10 AM

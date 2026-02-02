@@ -1,0 +1,6 @@
+TOP 3 EARNERS REPORT
+Rank   Name                      Department           Salary
+1      Frank Miller              Engineering          $120,000
+2      Henry Davis               Sales                $95,000
+3      Charlie Brown             Engineering          $91,000
+Report Generated: 2/2/2026, 10:54:20 AM
