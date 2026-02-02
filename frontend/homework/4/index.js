@@ -1,12 +1,9 @@
-import path from 'node:path';
-import { readEmployeeData } from './src/fileReader.js';
-import { generateSummaryReport } from './src/summaryReport.js';
-import { generateDepartmentReport } from './src/departmentReport.js';
-import { generateTopEarnersReport } from './src/topEarnersReport.js';
-import { fileURLToPath } from 'node:url';
+const path = require('node:path');
+const { readEmployeeData } = require('./src/fileReader.js');
+const { generateSummaryReport } = require('./src/summaryReport.js');
+const { generateDepartmentReport } = require('./src/departmentReport.js');
+const { generateTopEarnersReport } = require('./src/topEarnersReport.js');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const DATA_FILE = path.join(__dirname, 'data', 'employees.json');
 const REPORTS_DIR = path.join(__dirname, 'reports');
@@ -54,7 +51,7 @@ function generateSummary (employees) {
 }
 
 function generateDepartment (employees, args) {
-    const departments = [...new Set(employees.map(emp =>emp.departments))];
+    const departments = [...new Set(employees.map(emp =>emp.department))];
     // if specific department provided
     if(args[1]) {
         const dept = args[1];
@@ -63,7 +60,7 @@ function generateDepartment (employees, args) {
     } 
     // Otherwise generate report for all the departments
     else {
-        console.log("Generating repor for all the departments\n");
+        console.log("Generating report for all the departments\n");
         departments.forEach(dept => {
             const outputPath = path.join(REPORTS_DIR, `department_${dept.toLowerCase()}_report.txt`);
             generateDepartmentReport(employees, dept, outputPath);

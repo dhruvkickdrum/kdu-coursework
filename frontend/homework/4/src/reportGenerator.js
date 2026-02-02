@@ -1,8 +1,9 @@
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
-import { dirname } from 'node:path';
+const { existsSync, mkdirSync, writeFileSync } = require('node:fs');
+const { dirname } = require('node:path');
 
 
-export function writeReport(filePath, content) {
+
+function writeReport(filePath, content) {
     try {
         const directory = dirname(filePath);
         if(!existsSync(directory)) {
@@ -15,4 +16,9 @@ export function writeReport(filePath, content) {
         console.log(`Error writing report to ${filePath}: ${error.message}`);
         throw error;
     }
+}
+
+
+module.exports = {
+    writeReport
 }

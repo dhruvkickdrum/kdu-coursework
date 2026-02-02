@@ -1,7 +1,7 @@
-import { writeReport } from './reportGenerator.js';
+const { writeReport } = require('./reportGenerator.js');
 
 
-export function generateSummaryReport(employees, outputPath) {
+function generateSummaryReport(employees, outputPath) {
     const totalEmployees = employees.length;
     const totalSalary = employees.reduce((sum, emp) => sum + emp.salary, 0);
     const averageSalary = totalSalary / totalEmployees;
@@ -45,3 +45,7 @@ export function generateSummaryReport(employees, outputPath) {
 
 }
   
+
+module.exports = {
+    generateSummaryReport
+}

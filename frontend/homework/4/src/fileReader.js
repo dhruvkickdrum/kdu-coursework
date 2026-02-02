@@ -1,6 +1,7 @@
-import { readFileSync } from 'node:fs';
+const { readFileSync } = require('node:fs');
 
-export function readEmployeeData(filePath) {
+
+function readEmployeeData(filePath) {
     try {
         // Read file
         const fileContent = readFileSync(filePath, 'utf-8');
@@ -18,3 +19,7 @@ export function readEmployeeData(filePath) {
         throw error;
     }
 }
+
+module.exports = {
+  readEmployeeData
+};

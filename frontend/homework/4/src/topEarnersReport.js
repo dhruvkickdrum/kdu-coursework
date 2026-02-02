@@ -1,7 +1,7 @@
-import { writeReport } from './reportGenerator.js';
+const { writeReport } = require('./reportGenerator.js');
 
 
-export function generateTopEarnersReport(employees, count, outputPath) {
+function generateTopEarnersReport(employees, count, outputPath) {
   const sortedEmployees = [...employees].sort((a, b) => b.salary - a.salary);
   
   const topEarners = sortedEmployees.slice(0, count);
@@ -20,3 +20,7 @@ export function generateTopEarnersReport(employees, count, outputPath) {
   
   return report;
 }
+
+module.exports = {
+  generateTopEarnersReport
+};

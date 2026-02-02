@@ -1,7 +1,7 @@
-import { writeReport } from './reportGenerator.js';
+const { writeReport } = require('./reportGenerator.js');
 
 
-export function generateDepartmentReport(employees, department, outputPath) {
+function generateDepartmentReport(employees, department, outputPath) {
   const departmentEmployees = employees.filter(
     emp => emp.department.toLowerCase() === department.toLowerCase()
   );
@@ -38,3 +38,8 @@ export function generateDepartmentReport(employees, department, outputPath) {
   
   return report;
 }
+
+
+module.exports = {
+  generateDepartmentReport
+};

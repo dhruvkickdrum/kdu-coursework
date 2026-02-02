@@ -25,4 +25,4 @@ Department wise breakdown :
   Total Salary: $150,000
   Average Salary: $75,000
 
-Report Generated: 2/2/2026, 11:05:10 AM
+Report Generated: 2/2/2026, 11:19:25 AM
