@@ -1,0 +1,14 @@
+DEPARTMENT: SALES
+
+DEPARTMENT OVERVIEW :- 
+Department Name: Sales
+Number of Employees: 2
+Total Salary: $150,000
+Average Salary: $75,000
+
+EMPLOYEE LIST
+Name                      Salary
+Eve Wilson                $55,000
+Henry Davis               $95,000
+
+Report Generated: 2/2/2026, 11:22:09 AM
