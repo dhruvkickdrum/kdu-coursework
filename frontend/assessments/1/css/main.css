@@ -286,13 +286,13 @@ small {
   margin: 0.4px;
 }
 .chart_bar-buy {
-  background-color: #2f9e44;
-  border: 1px solid #000;
+  background-color: #b2f2bb;
+  border: 1px solid #2f9e44;
   border-bottom: none;
 }
 .chart_bar-sell {
-  background-color: #e03131;
-  border: 1px solid #000;
+  background-color: #ffc9c9;
+  border: 1px solid #e03131;
   border-bottom: none;
 }
 .chart_bar:hover::before {

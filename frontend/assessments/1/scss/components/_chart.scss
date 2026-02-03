@@ -74,14 +74,14 @@
     margin: 0.4px;
     
     &-buy {
-      background-color: $color-buy-dark;
-      @include border($border-width-thin, $color-border);
+      background-color: $color-buy;
+      @include border($border-width-thin, $color-buy-dark);
       border-bottom: none;
     }
     
     &-sell {
-      background-color: $color-sell-dark;
-      @include border($border-width-thin, $color-border);
+      background-color: $color-sell;
+      @include border($border-width-thin, $color-sell-dark);
       border-bottom: none;
     }
     

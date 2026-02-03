@@ -62,7 +62,7 @@ class HistoryManager {
           <span class="history_item-quantity">${transaction.quantity} stocks</span>
           <span class="history_item-action ${actionLabelClass}">${transaction.action}</span>
         </div>
-        <div class="history_item-timestamp">${transaction.formattedTime}</div>
+        <div class="history_item-timestamp">${transaction.formattedTime} - Price : ${transaction.price}</div>
       </div>
     `;
   }
