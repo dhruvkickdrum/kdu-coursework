@@ -1,0 +1,142 @@
+@use '../abstract' as *;
+
+.chart {
+  @include border($border-width-thin, $color-border);
+  position: relative;
+  display: flex;
+  margin-top: $spacing-md;
+  background-color: $color-background-secondary;
+  
+  // Y-axis (left side)
+  &_y-axis {
+    @include flex-column;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 40px;
+    height: $chart-height;
+    padding: $spacing-sm;
+    background-color: $color-background-primary;
+    border-right: none;
+    flex-shrink: 0;
+    z-index: 1000;
+  }
+  
+  // Main chart container
+  &_container {
+    position: relative;
+    flex: 1;
+    height: $chart-height;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border-left: $border-width-thin solid $color-border-light;
+    border-bottom: $border-width-thin solid $color-border-light
+  }
+
+  
+  // Grid background
+  &_grid {
+    @include absolute-cover;
+    z-index: $z-index-grid;
+    background-image: 
+      repeating-linear-gradient(
+        to right,
+        transparent,
+        transparent calc($chart-grid-width - 1px),
+        $color-grid calc($chart-grid-width - 1px),
+        $color-grid $chart-grid-width
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent calc($chart-grid-height - 1px),
+        $color-grid calc($chart-grid-height - 1px),
+        $color-grid $chart-grid-height 
+      );
+    opacity: 0.5;
+  }
+  
+  // Bars container
+  &_bars {
+    position: relative;
+    z-index: $z-index-bars;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    gap: 1;
+  }
+  
+  // Individual bar
+  &_bar {
+    width: $chart-bar-width;
+    @include transition(height, 0.3s);
+    position: relative;
+    flex-shrink: 0;
+    margin: 0.4px;
+    
+    &-buy {
+      background-color: $color-buy-dark;
+      @include border($border-width-thin, $color-border);
+      border-bottom: none;
+    }
+    
+    &-sell {
+      background-color: $color-sell-dark;
+      @include border($border-width-thin, $color-border);
+      border-bottom: none;
+    }
+    
+    // Tooltip on hover
+    &:hover::before {
+      content: attr(data-price);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: $spacing-xs $spacing-sm;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: $color-text-light;
+      font-size: $font-size-xs;
+      white-space: nowrap;
+      @include border-radius($border-radius-sm);
+      margin-bottom: $spacing-xs;
+      z-index: 100;
+    }
+    
+    &:hover::after {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-top-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+  
+  // X-axis (bottom)
+  &_x-axis {
+    position: absolute;
+    flex-direction: row;
+    justify-content: space-between;
+    bottom: 0;
+    left: 40px;
+    right: 0;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    background-color: $color-background-primary;
+    border-top: none;
+    z-index: $z-index-axis;
+  }
+  
+  &_x-label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    margin-right: auto;
+    
+    &:not(:last-child) {
+      margin-right: calc($chart-grid-width - 30px);
+    }
+  }
+}

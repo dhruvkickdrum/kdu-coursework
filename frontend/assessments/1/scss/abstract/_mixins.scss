@@ -1,0 +1,145 @@
+@use '../abstract/variables' as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Border utilities
+@mixin border($width: $border-width-thin, $color: $color-border, $style: solid) {
+  border: $width $style $color;
+}
+
+@mixin border-radius($radius: $border-radius-md) {
+  border-radius: $radius;
+}
+
+// Transition utilities
+@mixin transition($property: all, $duration: $transition-base, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Positioning utilities
+@mixin absolute-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+// Button utilities
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+@mixin button-base {
+  @include button-reset;
+  @include transition(all, $transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-md;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Scrollbar styling
+@mixin custom-scrollbar($width: 8px, $track-color: transparent, $thumb-color: rgba(0, 0, 0, 0.2)) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+    border-radius: $border-radius-sm;
+    
+    &:hover {
+      background: darken($thumb-color, 10%);
+    }
+  }
+}
+
+// Shadow utilities
+@mixin box-shadow($shadow: $shadow-base) {
+  box-shadow: $shadow;
+}
+
+// Grid utilities
+@mixin grid-lines($color: $color-grid, $opacity: 0.5) {
+  background-image: 
+    linear-gradient(to right, $color 1px, transparent 1px),
+    linear-gradient(to bottom, $color 1px, transparent 1px);
+  opacity: $opacity;
+}
+
+// Animation utilities
+@mixin fade-in($duration: $transition-base) {
+  animation: fadeIn $duration ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin slide-up($duration: $transition-base) {
+  animation: slideUp $duration ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

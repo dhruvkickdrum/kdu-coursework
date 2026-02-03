@@ -1,0 +1,43 @@
+@use '../abstract' as *;
+
+.btn {
+  @include button-base;
+  @include border($border-width-thin, $color-border);
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  min-width: 80px;
+  @include border-radius($border-radius-md);
+  
+  &:active {
+    transform: translateY(1px);
+  }
+  
+  // Buy button variant
+  &-buy {
+    background-color: $color-buy;
+    color: $color-text-primary;
+    
+    &:hover:not(:disabled) {
+      background-color: $color-buy-dark;
+    }
+    
+    &:active:not(:disabled) {
+      background-color: darken($color-buy-dark, 5%);
+    }
+  }
+  
+  // Sell button variant
+  &-sell {
+    background-color: $color-sell;
+    color: $color-text-primary;
+    
+    &:hover:not(:disabled) {
+      background-color: $color-sell-dark;
+    }
+    
+    &:active:not(:disabled) {
+      background-color: darken($color-sell-dark, 5%);
+    }
+  }
+}

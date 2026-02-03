@@ -1,0 +1,47 @@
+@use '../abstract' as *;
+
+.dashboard {
+  min-height: 100vh;
+  background-color: $color-background-primary;
+  display: flex;
+  flex-direction: column;
+  
+  &_header {
+    @include border($border-width-thin, $color-border-light);
+    @include flex-start;
+    height: $header-height;
+    background: linear-gradient(90deg, $color-primary 0%, $color-primary-dark 100%);
+    padding: $spacing-md $spacing-xl;
+  }
+  
+  &_title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    color: $color-text-light;
+  }
+  
+  &_container {
+    display: flex;
+    justify-content: center;
+  }
+
+  
+  &_main-section {
+    @include border($border-width-thin, $color-border);
+    flex: 0 0 $main-width-ratio;
+    background-color: $color-background-secondary;
+    padding: $spacing-lg;
+    border: none;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &_sidebar {
+    flex: 0 0 $sidebar-width-ratio;
+    background-color: $color-background-primary;
+    display: flex;
+    flex-direction: column;
+    border:  none;
+    padding: $spacing-lg;
+  }
+}
