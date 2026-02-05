@@ -1,0 +1,10 @@
+@use '../abstracts' as *;
+
+body {
+    margin:  0;
+    background-color: var(--color-surface-muted);
+}
+
+#root {
+    min-height: $size-viewport-height;
+}

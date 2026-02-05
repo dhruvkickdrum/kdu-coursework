@@ -1,0 +1,100 @@
+@use './variables' as *;
+
+@mixin theme-vars(
+  $primary,
+  $primary-dark,
+  $info,
+  $success,
+  $danger,
+  $warning,
+  $purple,
+  $accent,
+  $surface,
+  $surface-muted,
+  $surface-alt,
+  $border,
+  $border-strong,
+  $text,
+  $text-muted,
+  $text-subtle,
+  $text-light,
+  $badge-bg,
+  $badge-text,
+  $shadow-sm,
+  $shadow-md
+) {
+  --color-primary: #{$primary};
+  --color-primary-dark: #{$primary-dark};
+  --color-info: #{$info};
+  --color-success: #{$success};
+  --color-danger: #{$danger};
+  --color-warning: #{$warning};
+  --color-purple: #{$purple};
+  --color-accent: #{$accent};
+  --color-surface: #{$surface};
+  --color-surface-muted: #{$surface-muted};
+  --color-surface-alt: #{$surface-alt};
+  --color-border: #{$border};
+  --color-border-strong: #{$border-strong};
+  --color-text: #{$text};
+  --color-text-muted: #{$text-muted};
+  --color-text-subtle: #{$text-subtle};
+  --color-text-light: #{$text-light};
+  --color-badge-bg: #{$badge-bg};
+  --color-badge-text: #{$badge-text};
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+}
+
+:root,
+.theme-light {
+  @include theme-vars(
+    $color-primary,
+    $color-primary-dark,
+    $color-info,
+    $color-success,
+    $color-danger,
+    $color-warning,
+    $color-purple,
+    $color-accent,
+    $color-surface,
+    $color-surface-muted,
+    $color-surface-alt,
+    $color-border,
+    $color-border-strong,
+    $color-text,
+    $color-text-muted,
+    $color-text-subtle,
+    $color-text-light,
+    $color-badge-bg,
+    $color-badge-text,
+    $shadow-sm,
+    $shadow-md
+  );
+}
+
+.theme-dark {
+  @include theme-vars(
+    $dark-color-primary,
+    $dark-color-primary-dark,
+    $dark-color-info,
+    $dark-color-success,
+    $dark-color-danger,
+    $dark-color-warning,
+    $dark-color-purple,
+    $dark-color-accent,
+    $dark-color-surface,
+    $dark-color-surface-muted,
+    $dark-color-surface-alt,
+    $dark-color-border,
+    $dark-color-border-strong,
+    $dark-color-text,
+    $dark-color-text-muted,
+    $dark-color-text-subtle,
+    $dark-color-text-light,
+    $dark-color-badge-bg,
+    $dark-color-badge-text,
+    $dark-shadow-sm,
+    $dark-shadow-md
+  );
+}

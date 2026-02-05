@@ -1,0 +1,120 @@
+@use '../abstracts' as *;
+
+.book-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: $space-xl;
+    border-radius: $radius-md;
+    border: $border-width solid var(--color-border-strong);
+    box-shadow: var(--shadow-sm);
+    transition: transform $transition-fast, box-shadow $transition-fast;
+    cursor: pointer;
+    background-color: var(--color-surface);
+
+    &:hover {
+        transform: translateY(-$lift-sm);
+        box-shadow: var(--shadow-md);
+    }
+
+    &-unavailable {
+        background-color: var(--color-surface-muted);
+    }
+
+    &_badge {
+        position: absolute;
+        top: $space-md;
+        right: $space-md;
+        padding: $space-xs $space-lg;
+        border-radius: $radius-pill;
+        font-size: $font-size-xs;
+        font-weight: 700;
+        color: var(--color-text-light);
+
+        &-available {
+            background-color: var(--color-success);
+        }
+
+        &-unavailable {
+            background-color: var(--color-danger);
+        }
+    }
+
+    &_title {
+        margin: 0 0 $space-sm 0;
+        font-size: $font-size-lg;
+        font-weight: 700;
+        color: var(--color-text);
+        padding-right: $space-4xl;
+    }
+
+    &_author {
+        margin: 0 0 $space-md 0;
+        font-size: $font-size-md;
+        color: var(--color-text-subtle);
+        font-style: italic;
+    }
+
+    &_genre {
+        display: inline-block;
+        padding: $space-xs $space-md;
+        background-color: var(--color-badge-bg);
+        color: var(--color-badge-text);
+        border-radius: $radius-sm;
+        font-size: $font-size-xs;
+        font-weight: 500;
+        margin-bottom: $space-md;
+        width: $size-fit;
+    }
+
+    &_description {
+        margin: 0 0 $space-md 0;
+        font-size: $font-size-sm;
+        color: var(--color-text-subtle);
+        line-height: $line-height-base;
+        flex: 1;
+    }
+
+    &_footer {
+        margin-top: auto;
+    }
+
+    &_meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: $font-size-sm;
+        color: var(--color-text-muted);
+        margin-bottom: $space-sm;
+    }
+
+    &_meta-item strong {
+        font-weight: 600;
+    }
+    &_rating {
+        display: flex;
+        align-items: center;
+        gap: $space-sm;
+    }
+
+    &_stars {
+        display: flex;
+        gap: $space-2xs;
+    }
+
+    &_star {
+        font-size: $font-size-base;
+        color: var(--color-border-strong);
+
+        &-active {
+            color: var(--color-warning);
+        }
+    }
+
+    &_rating-value {
+        font-size: $font-size-md;
+        font-weight: 700;
+        color: var(--color-text);
+    }
+}
+

@@ -1,0 +1,67 @@
+@use '../abstracts' as *;
+
+.filter-bar {
+    @include card;
+    padding: $space-2xl;
+    margin-bottom: $space-2xl;
+
+    &_title {
+        margin: 0 0 $space-xl 0;
+        font-size: $font-size-xl;
+        color: var(--color-text);
+    }
+
+    &_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax($grid-filter-min, 1fr));
+        gap: $space-lg;
+        margin-bottom: $space-lg;
+    }
+
+    &_field {
+        display: flex;
+        flex-direction: column;
+        gap: $space-sm;
+
+        &-toggle {
+            justify-content: flex-end;
+        }
+    }
+
+    &_label {
+        font-size: $font-size-md;
+        font-weight: 500;
+        color: var(--color-text-subtle);
+    }
+
+    &_input, &_select {
+        width: 100%;
+        padding: $space-md $space-lg;
+        border: $border-width solid var(--color-border);
+        border-radius: $radius-sm;
+        background-color: var(--color-surface);
+        color: var(--color-text);
+    }
+
+    &_toggle {
+        display: flex;
+        align-items: center;
+        gap: $space-sm;
+        cursor: pointer;
+        font-size: $font-size-md;
+        color: var(--color-text-subtle);
+        padding: $space-md 0;
+    }
+
+    &_checkbox {
+        width: $space-xl;
+        height: $space-xl;
+        cursor: pointer;
+    }
+
+    &_actions {
+        display: flex;
+    }
+
+
+}
