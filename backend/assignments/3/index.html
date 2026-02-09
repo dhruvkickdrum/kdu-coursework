@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Counter App</h1>
+  <p id="count">0</p>
+  <button onclick="add()">Add Counter</button>
+
+  <script>
+    const API = "https://fhnx3w9gu3.execute-api.ap-south-1.amazonaws.com/prod/counter";
+
+    async function load() {
+      const r = await fetch(API);
+      const d = await r.json();
+      document.getElementById("count").innerText = d.count;
+    }
+
+    async function add() {
+      await fetch(API, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      load();
+    }
+    load();
+  </script>
+</body>
+
+</html>
