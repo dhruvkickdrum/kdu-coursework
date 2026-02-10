@@ -1,0 +1,6 @@
+@use '../abstracts' as *;
+
+.page-home {
+  display: grid;
+  gap: $space-xl;
+}

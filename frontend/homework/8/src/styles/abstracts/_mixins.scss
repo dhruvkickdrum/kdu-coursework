@@ -1,0 +1,34 @@
+@use './variables' as *;
+
+@mixin respond($min) {
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
+@mixin card($radius: var(--radius-md), $shadow: var(--shadow-2), $bg: var(--color-surface), $border: var(--color-border)) {
+  background: $bg;
+  border: $border-width solid $border;
+  border-radius: $radius;
+  @if $shadow != null {
+    box-shadow: $shadow;
+  }
+}
+
+@mixin focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 122, 89, 0.35);
+}
+
+@mixin flex-between($align: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: space-between;
+}
+
+@mixin label-text($size: $font-xs, $tracking: $letter-spacing-sm, $transform: uppercase, $color: var(--color-muted)) {
+  font-size: $size;
+  letter-spacing: $tracking;
+  text-transform: $transform;
+  color: $color;
+}
