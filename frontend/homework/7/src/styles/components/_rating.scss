@@ -1,0 +1,20 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.rating_stars {
+  position: relative;
+  display: inline-block;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+
+.rating_value {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
