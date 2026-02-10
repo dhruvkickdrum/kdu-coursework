@@ -1,0 +1,22 @@
+@use '../abstracts' as *;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: $baseFontSize;
+    scroll-behavior: smooth;
+
+    @include responsive-font-size
+}
+
+body {
+    font-family: $myFont;
+    background-color: $background-white;
+    color: $text-dark;
+    line-height: $line-height;
+}
+

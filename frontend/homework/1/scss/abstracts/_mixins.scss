@@ -1,0 +1,43 @@
+@use '../abstracts/variables' as *;
+
+// Responsive font size mixin
+@mixin responsive-font-size {
+    @media (min-width: 1440px) {
+        font-size: 18px;
+    }
+
+    @media (max-width: 1024px) {
+        font-size: 15px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 13px;
+    }
+}
+
+// Section underline decoration
+@mixin section-underline($color: $accent) {
+    &::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: $color;
+        margin: 0.75rem auto 0;
+        border-radius: 2px;
+    }
+}
+
+// Card hover effect
+@mixin card-hover {
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+}

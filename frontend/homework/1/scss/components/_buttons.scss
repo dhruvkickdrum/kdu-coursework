@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+.btn {
+    padding: 0.8em 1.5em;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+
+
+    &-primary {
+        background-color: $primary;
+        color: $background-white;
+        border: 2px solid $primary;
+
+        &:hover {
+            background-color: darken($primary, 10%);
+        }
+    }
+
+    &-secondary {
+        background-color: transparent;
+        color: $primary;
+        border: 2px solid $primary;
+
+        &:hover {
+            background-color: $primary;
+            color: $background-white;
+        }
+    }
+}
