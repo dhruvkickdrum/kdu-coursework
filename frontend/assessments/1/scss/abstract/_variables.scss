@@ -1,0 +1,89 @@
+$color-primary: #1871c2;
+$color-primary-dark: #1a6fa3;
+
+$color-buy: #b2f2bb;
+$color-buy-dark: #2f9e44;
+$color-sell: #ffc9c9;
+$color-sell-dark: #e03131;
+
+$color-text-primary: #000000;
+$color-text-secondary: #6a6868;
+$color-text-light: #fff;
+
+$color-background-primary: #f9f9f9;
+$color-background-secondary: #fff;
+$color-background-overlay: #62b566;
+
+$color-border: #000;
+$color-border-light: #e0e0e0;
+$color-grid: #ccc;
+
+$color-change-positive: #22c55e;
+$color-change-negative: #ef4444;
+
+// Typography-
+$font-family-primary: 'Poppins', sans-serif;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;     
+$font-size-base: 1rem;       
+$font-size-lg: 1.125rem;     
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;    
+$spacing-md: 1rem;      
+$spacing-lg: 1.5rem;    
+$spacing-xl: 2rem;      
+$spacing-2xl: 3rem;     
+
+// Layout
+$main-width-ratio: 75%;
+$sidebar-width-ratio: 25%;
+
+$chart-height: 500px;
+$chart-bar-width: 20px;
+$chart-grid-width: 106px;
+$chart-grid-height: 125px;
+
+$header-height: 80px;
+$stock-info-height: 80px;
+
+// Borders
+$border-width-thin: 1px;
+$border-width-medium: 2px;
+$border-width-thick: 4px;
+
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 10px;
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Z-index
+$z-index-grid: 1;
+$z-index-bars: 2;
+$z-index-axis: 3;
+$z-index-header: 10;
+$z-index-modal: 100;
+
+// Chart Specific
+$chart-scale-step: 100;
+$chart-price-max: 500;
+$chart-price-min: 0;
+$chart-update-interval: 5000;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);

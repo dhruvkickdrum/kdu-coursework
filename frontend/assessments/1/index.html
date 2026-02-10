@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+    <div class="dashboard">
+        <header class="dashboard_header">
+            <h1 class="dashboard_title">KDU Stock Markert Dashboard</h1>
+        </header>
+        <div class="dashboard_container">
+            <main class="dashboard_main-section">
+                <div class="stock-info">
+                    <div class="stock-info_company">
+                        <div class="stock-info_logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/500px-Google_%22G%22_logo.svg.png" alt="Google Logo" class="stock-info_logo-img">
+                        </div>
+                        <span class="stock-info_name">Google</span>
+                    </div>
+                    <div class="stock-info_price">
+                        <span class="stock-info_label">Price</span>
+                        <span class="stock-info_value" id="currentPrice">0.00</span>
+                        <span class="stock-info_change" id="priceChange">0.00%</span>
+                    </div>
+                    <div class="stock-info_quantity">
+                        <input type="number" class="stock-info_input" id="quantityInput" placeholder="Enter Qty" min="1" value="1">
+                    </div>
+                    <div class="stock-info_actions">
+                        <button class="btn btn-buy" id="buyButton">Buy</button>
+                        <button class="btn btn-sell" id="sellButton">Sell</button>
+                    </div>
+                </div>
+                <div class="chart">
+                    <div class="chart_y-axis" id="yAxis">
+                        <span>500</span>
+                        <span>375</span>
+                        <span>250</span>
+                        <span>125</span>
+                        <span>0</span>
+                    </div>
+                    <div class="chart_container">
+                        <div class="chart_grid" id="chartGrid"></div>
+                        <div class="chart_bars" id="chartBars"></div>
+                    </div>
+                    <div class="chart_x-axis" id="xAxis">
+                        <span>0</span>
+                        <span>100</span>
+                        <span>200</span>
+                        <span>300</span>
+                        <span>400</span>
+                        <span>500</span>
+                        <span>600</span>
+                        <span>700</span>
+                        <span>800</span>
+                        <span>900</span>
+                        <span>1000</span>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="dashboard_sidebar">
+                <div class="history">
+                    <h2 class="history_title">History </h2>
+                    <div class="history_list" id="historyList"></div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/history.js"></script>
+</body>
+</html>

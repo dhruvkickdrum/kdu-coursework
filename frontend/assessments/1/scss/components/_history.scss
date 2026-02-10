@@ -1,0 +1,95 @@
+@use '../abstract' as *;
+
+.history {
+  @include border($border-width-thin, $color-border);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-background-secondary;
+  
+  &_title {
+    @include border($border-width-thin, $color-border);
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    background-color: $color-background-secondary;
+    border: none;
+  }
+  
+  &_list {
+    @include custom-scrollbar(6px, transparent, rgba(0, 0, 0, 0.2));
+    flex: 1;
+    overflow-y: auto;
+    padding: $spacing-md;
+  }
+  
+  &_item {
+    @include border($border-width-thin, $color-border);
+    @include border-radius($border-radius-lg);
+    @include slide-up;
+    padding: $spacing-md;
+    margin-bottom: $spacing-md;
+    background-color: $color-background-secondary;
+    @include transition(transform, $transition-fast);
+    
+    &:hover {
+      transform: translateY(-2px);
+      @include box-shadow($shadow-md);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    &-buy {
+      border-left: $border-width-thick solid $color-buy-dark;
+    }
+    
+    &-sell {
+      border-left: $border-width-thick solid $color-sell-dark;
+    }
+  }
+  
+  &_item-header {
+    @include flex-between;
+    margin-bottom: $spacing-sm;
+  }
+  
+  &_item-quantity {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+  }
+  
+  &_item-action {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    padding: 2px $spacing-sm;
+    @include border-radius($border-radius-sm);
+    
+    &-buy {
+      color: $color-buy-dark;
+      background-color: rgba($color-buy-dark, 0.1);
+    }
+    
+    &-sell {
+      color: $color-sell-dark;
+      background-color: rgba($color-sell-dark, 0.1);
+    }
+  }
+  
+  &_item-timestamp {
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+    margin-top: $spacing-xs;
+  }
+  
+  &_empty {
+    @include flex-center;
+    flex: 1;
+    padding: $spacing-xl;
+    text-align: center;
+    color: $color-text-secondary;
+    font-size: $font-size-sm;
+  }
+}

@@ -1,0 +1,137 @@
+@use '../abstract' as *;
+
+.stock-info {
+  @include flex-between;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  background-color: $color-background-secondary;
+  height: $stock-info-height;
+  
+  // Company section
+  &_company {
+    @include flex-start;
+    @include border($border-width-thin, $color-border);
+    padding: $spacing-sm $spacing-lg;
+    gap: $spacing-md;
+    @include flex-start;
+    background-color: $color-background-secondary;
+    flex: 0 0 auto;
+    height: 50px;
+  }
+
+  
+  &_logo {
+    @include border($border-width-thin, $color-border);
+    width: 40px;
+    height: 40px;
+    padding: $spacing-xs;
+    background-color: #fef3c7;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: $border-radius-sm;
+  }
+  
+  &_logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  &_name {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    color: $color-text-primary;
+  }
+  
+  // Price section
+  &_price {
+    @include flex-start;
+    @include border($border-width-thin, $color-border);
+    gap: $spacing-md;
+    padding: $spacing-sm $spacing-lg;
+    background-color: $color-background-secondary;
+    flex: 0 0 auto;
+    height: 50px;
+  }
+  
+  &_label {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+  }
+  
+  &_value {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    
+    &::before {
+      content: '₹';
+    }
+  }
+  
+  &_change {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    padding: $spacing-xs $spacing-sm;
+    @include border-radius($border-radius-sm);
+    
+    &.positive {
+      color: $color-change-positive;
+      background-color: rgba($color-change-positive, 0.1);
+      
+      &::before {
+        content: '▲ ';
+      }
+    }
+    
+    &.negative {
+      color: $color-change-negative;
+      background-color: rgba($color-change-negative, 0.1);
+      
+      &::before {
+        content: '▼ ';
+      }
+    }
+    
+    &.neutral {
+      color: $color-text-secondary;
+      background-color: rgba($color-text-secondary, 0.1);
+    }
+  }
+  
+  // Quantity input section
+  &_quantity {
+    flex: 0 0 auto;
+  }
+  
+  &_input {
+    @include border($border-width-thin, $color-border);
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-base;
+    width: 150px;
+    height: 50px;
+    background-color: $color-background-secondary;
+    @include transition(border-color);
+    
+    &::placeholder {
+      color: $color-text-secondary;
+    }
+    
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+    
+    &:hover:not(:focus) {
+      border-color: darken($color-border-light, 10%);
+    }
+  }
+  
+  // Actions section
+  &_actions {
+    @include flex-start;
+    gap: $spacing-md;
+    flex: 0 0 auto;
+  }
+}
