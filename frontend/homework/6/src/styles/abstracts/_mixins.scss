@@ -1,0 +1,14 @@
+@use '../abstracts/variables' as *;
+
+@mixin container {
+    max-width: $container-max;
+    margin: 0 auto;
+    padding-left: $space-2xl;
+    padding-right: $space-2xl;
+}
+
+@mixin card {
+    background-color: var(--color-surface);
+    border-radius: $radius-md;
+    box-shadow: var(--shadow-sm);
+}

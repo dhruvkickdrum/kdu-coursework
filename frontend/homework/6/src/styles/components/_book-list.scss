@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+
+.book-list {
+    &_loading {
+        text-align: center;
+        padding: $space-5xl $space-xl;
+        font-size: $font-size-lg;
+        color: var(--color-text-muted);
+    }
+
+    &_empty {
+        @include card;
+        text-align: center;
+        padding: $space-5xl $space-xl;
+    }
+
+    &_empty-title {
+        margin: 0 0 $space-sm 0;
+        font-size: $font-size-xl;
+        color: var(--color-text);
+    }
+
+    &_empty-text {
+        margin: 0;
+        font-size: $font-size-md;
+        color: var(--color-text-muted);
+    }
+
+    &_meta {
+        margin-bottom: $space-lg;
+        font-size: $font-size-md;
+        color: var(--color-text-muted);
+        font-weight: 500;
+    }
+
+    &_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax($grid-book-min, 1fr));
+        gap: $space-xl;
+    }
+}

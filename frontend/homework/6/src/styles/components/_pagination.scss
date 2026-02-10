@@ -1,0 +1,45 @@
+@use '../abstracts' as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+
+  &_pages {
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  &_button,
+  &_page {
+    padding: $space-sm $space-md;
+    border-radius: $radius-sm;
+    border: $border-width solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color $transition-fast;
+  }
+  
+  &_button:disabled {
+    cursor: not-allowed;
+    color: var(--color-text-muted);
+    background-color: var(--color-surface-muted);
+  }
+  
+  &_button:not(:disabled):hover,
+  &_page:hover {
+    background-color: var(--color-surface-muted);
+  }
+  
+  &_page-active {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-color: var(--color-primary);
+  }
+
+}
+

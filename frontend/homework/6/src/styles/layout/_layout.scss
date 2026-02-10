@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+
+.app {
+    min-height: $size-viewport-height;
+    background-color: var(--color-surface-muted);
+}
+
+.app_main{
+    @include container;
+    padding-bottom: $space-4xl;
+}
+
+.app_controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: $space-lg;
+}
+
+.app_pagination {
+    margin-top: $space-2xl;
+    display: flex;
+    justify-content: center;
+}
