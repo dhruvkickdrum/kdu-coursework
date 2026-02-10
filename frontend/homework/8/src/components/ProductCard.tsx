@@ -12,12 +12,23 @@ interface ProductCardProps {
 export default function ProductCard({ product, onSelect }: Readonly<ProductCardProps>) {
   const handleClick = useCallback(() => onSelect(product.id), [onSelect, product.id])
 
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLElement>) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault()
+        onSelect(product.id)
+      }
+    },
+    [onSelect, product.id]
+  )
+
   return (
     <article
       className="product-card"
       role="button"
       tabIndex={0}
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
     >
       <div className="product-card_media">
         <img src={product.thumbnail} alt={product.title} loading="lazy" />

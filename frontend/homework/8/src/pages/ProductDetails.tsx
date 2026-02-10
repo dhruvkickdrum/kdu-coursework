@@ -7,18 +7,7 @@ import Rating from '../components/Rating'
 import { Price } from '../components/Price'
 import { useProductContext } from '../context/ProductContext'
 import type { Product, Review } from '../types/product'
-
-function formatDate(value: string) {
-  const date = new Date(value)
-  if (Number.isNaN(date.getTime())) {
-    return value
-  }
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  })
-}
+import { formatDate } from '../utils/format'
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -73,7 +62,7 @@ export default function ProductDetails() {
     },
   ].filter((item) => item.value)
 
-  const reviews = (product.reviews ?? []) as Review[]
+  const reviews = (product.reviews ?? [])
 
   
   return (

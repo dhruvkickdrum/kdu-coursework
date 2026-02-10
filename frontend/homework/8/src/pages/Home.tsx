@@ -12,8 +12,6 @@ export default function Home() {
   const isSearching = useMemo(() => searchQuery.trim().length > 0, [searchQuery]);
   const isLoading = useMemo(() => loading || searchLoading, [loading, searchLoading]);
 
-  const gridProducts = useMemo(() => products, [products]);
-
   const handleSelect = useCallback(
     (id: number) => {
       navigate(`/product/${id}`)
@@ -49,13 +47,13 @@ export default function Home() {
       {isLoading && <Loading label={isSearching ? "Searching Products...": "Loading Products..."} />}
       {error && <ErrorState message={error} actionLabel="Try again" onAction={handleRetry} />}
 
-      {!isLoading && !error && gridProducts.length === 0 && (
+      {!isLoading && !error && products.length === 0 && (
         <div className="state">{emptyStateLabel}</div>
       )}
 
-      {!isLoading && !error && gridProducts.length > 0 && (
+      {!isLoading && !error && products.length > 0 && (
         <div className="product-grid">
-          {gridProducts.map((product) => (
+          {products.map((product) => (
             <ProductCard key={product.id} product={product} onSelect={handleSelect} />
           ))}
         </div>
