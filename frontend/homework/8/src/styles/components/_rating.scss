@@ -1,0 +1,22 @@
+@use '../abstracts' as *;
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.rating_stars {
+  position: relative;
+  display: inline-block;
+  font-size: $font-md;
+  letter-spacing: 2px;
+}
+
+
+.rating_value {
+  font-size: $font-sm;
+  color: var(--color-muted);
+}

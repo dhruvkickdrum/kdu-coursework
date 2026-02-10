@@ -1,0 +1,47 @@
+@use '../abstracts' as *;
+
+.app-main {
+  width: min($container-max, calc(100% - $container-gutter));
+  margin: 0 auto;
+  padding: $space-2xl 0 4.5rem;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  margin-bottom: $space-2xl;
+}
+
+.section-subtitle {
+  max-width: 46ch;
+  margin-top: $space-xs;
+}
+
+.section-stat {
+  align-self: flex-start;
+  @include card;
+  padding: $space-sm $space-lg;
+  @include flex-between;
+  gap: $space-sm;
+}
+
+.section-stat_label {
+  font-size: $font-lg;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+}
+
+.section-stat_value {
+  font-size: $font-lg;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+@include respond($bp-md) {
+  .section-header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}

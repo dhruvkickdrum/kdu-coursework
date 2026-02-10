@@ -1,0 +1,163 @@
+@use '../abstracts' as *;
+
+.page-details {
+  display: grid;
+  gap: $space-lg;
+}
+
+.details {
+  display: grid;
+  gap: $space-xl;
+}
+
+.details_content {
+  display: grid;
+  gap: $space-lg;
+}
+
+.details_description {
+  font-size: $font-base;
+  color: var(--color-muted);
+}
+
+.details_meta {
+  display: flex;
+  gap: $space-xs;
+  flex-wrap: wrap;
+}
+
+.details_price {
+  @include card;
+  padding: $space-sm $space-md;
+}
+
+.details_price-sub {
+  display: flex;
+  align-items: center;
+  gap: $space-2xs;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+}
+
+.details_label {
+  @include label-text;
+}
+
+.details_value {
+  color: var(--color-ink);
+}
+
+.details_stats {
+  display: grid;
+  gap: $space-sm;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.details_stat {
+  @include card($shadow: null);
+  padding: $space-sm;
+  display: grid;
+  gap: $space-2xs;
+}
+
+.details_stat-label {
+  @include label-text;
+}
+
+.details_stat-value {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.details_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2xs;
+}
+
+
+.details_info {
+  display: grid;
+  gap: $space-sm;
+  grid-template-columns: repeat(auto-fit, minmax($grid-info-min, 1fr));
+}
+
+.details_info-label {
+  display: block;
+  @include label-text;
+  margin-bottom: 0.35rem;
+}
+
+.details_meta-panel {
+  display: grid;
+  gap: $space-sm;
+  padding: $space-md;
+  @include card($shadow: null);
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax($grid-info-min, 1fr));
+}
+
+.details_qr {
+  width: $qr-size;
+  height: $qr-size;
+  justify-self: start;
+}
+
+.details_reviews {
+  margin-top: $space-xl;
+  display: grid;
+  gap: $space-lg;
+}
+
+.review-grid {
+  display: grid;
+  gap: $space-md;
+  grid-template-columns: repeat(auto-fit, minmax($grid-card-min, 1fr));
+}
+
+.review-card {
+  padding: $space-md;
+  @include card;
+  display: grid;
+  gap: $space-xs;
+}
+
+.review-card_header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-2xs;
+  font-size: $font-sm;
+  color: var(--color-muted);
+}
+
+.review-card_header h4 {
+  color: var(--color-ink);
+  font-size: $font-base;
+}
+
+.review-card_date {
+  @include label-text;
+}
+
+.review-card_comment {
+  color: var(--color-ink-soft);
+  font-size: 0.95rem;
+}
+
+.chip-soft {
+  background: rgba(32, 201, 151, 0.15);
+  color: var(--color-accent);
+}
+
+.chip-success {
+  background: rgba(32, 201, 151, 0.2);
+  color: var(--color-accent);
+}
+
+@include respond($bp-md) {
+  .details {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}

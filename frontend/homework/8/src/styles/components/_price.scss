@@ -1,0 +1,39 @@
+@use '../abstracts' as *;
+
+.price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: $space-2xs;
+  flex-wrap: wrap;
+}
+
+.price_current {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.price_original {
+  text-decoration: line-through;
+  color: var(--color-muted);
+  font-size: $font-sm;
+}
+
+.price_badge {
+  @include label-text($size: 0.7rem, $color: var(--color-primary));
+  background: rgba(255, 122, 89, 0.15);
+  color: var(--color-primary);
+  padding: 0.15rem $space-2xs;
+  border-radius: $radius-pill;
+}
+
+.price-sm .price_current {
+  font-size: $font-base;
+}
+
+.price-md .price_current {
+  font-size: 1.2rem;
+}
+
+.price-lg .price_current {
+  font-size: 1.6rem;
+}
