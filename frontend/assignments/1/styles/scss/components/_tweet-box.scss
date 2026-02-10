@@ -1,0 +1,343 @@
+@use '../abstract' as *;
+
+.tweet-box {
+  border-bottom: 1px solid $color-border;
+  padding: $spacing-md $spacing-lg;
+  background-color: $color-background;
+  
+  @include mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: $z-index-modal;
+    overflow-y: auto;
+    padding: $spacing-md;
+    border-top: 1px solid $color-border;
+  }
+  
+  .tweet-box-header {
+    @include flex-between;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid $color-border;
+    margin-bottom: $spacing-md;
+    
+    @include desktop {
+      display: none;
+    }
+    
+    .back-arrow {
+      color: $color-text-primary;
+      font-size: $font-size-xl;
+      background: transparent;
+      cursor: pointer;
+    }
+    
+    .drafts-link {
+      color: $color-primary;
+      font-size: $font-size-base;
+      cursor: pointer;
+    }
+    
+    .mobile-tweet-btn {
+      @include button-primary;
+      padding: $spacing-sm $spacing-lg;
+      font-size: $font-size-base;
+    }
+  }
+  
+  .post-input {
+    @include flex-start;
+    gap: $spacing-md;
+    min-width: 0;
+    align-items: flex-start;
+    
+    @include mobile {
+      align-items: flex-start;
+    }
+    
+    .post-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: $radius-full;
+      background-color: $color-primary;
+      @include flex-center;
+      font-weight: $font-weight-bold;
+      color: $color-text-primary;
+      font-size: $font-size-lg;
+      flex-shrink: 0;
+      margin-top: $spacing-sm;
+      
+      @include mobile {
+        width: 28px;
+        height: 28px;
+        font-size: $font-size-sm;
+        margin-top: $spacing-xs;
+      }
+    }
+    
+    .input-wrapper {
+      @include flex-column;
+      flex: 1;
+      gap: $spacing-md;
+      min-width: 0;
+      
+      .tweet-textarea {
+        width: 100%;
+        min-height: 60px;
+        color: $color-text-primary;
+        font-size: $font-size-xl;
+        line-height: $line-height-relaxed;
+        padding: $spacing-sm 0;
+        background: transparent;
+        
+        @include mobile {
+          min-height: 80px;
+          padding-top: 0;
+          margin-top: $spacing-xs;
+        }
+        
+        &::placeholder {
+          color: $color-text-secondary;
+        }
+      }
+      
+      .reply-settings {
+        @include flex-start;
+        gap: $spacing-sm;
+        color: $color-primary;
+        font-size: $font-size-sm;
+        padding: $spacing-sm 0;
+        
+        .reply-icon {
+          @include icon-size(16px);
+          fill: currentColor;
+        }
+      }
+      
+      .media-preview {
+        display: none;
+        gap: $spacing-sm;
+        margin-top: $spacing-md;
+        border-radius: $radius-lg;
+        overflow: hidden;
+        max-width: 100%;
+        
+        &.single {
+          display: grid;
+          grid-template-columns: 1fr;
+          max-width: 100%;
+        }
+        
+        &.multiple {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .media-item {
+          position: relative;
+          aspect-ratio: 16 / 9;
+          border-radius: $radius-lg;
+          overflow: hidden;
+          background-color: $color-surface;
+          border: 1px solid $color-border;
+          min-height: 200px;
+          
+          img, video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+          }
+          
+          .media-remove {
+            position: absolute;
+            top: $spacing-xs;
+            right: $spacing-xs;
+            width: 32px;
+            height: 32px;
+            border-radius: $radius-full;
+            background-color: rgba(0, 0, 0, 0.75);
+            color: $color-text-primary;
+            border: none;
+            cursor: pointer;
+            @include flex-center;
+            font-size: $font-size-xl;
+            line-height: 1;
+            transition: all $transition-base;
+            font-weight: $font-weight-bold;
+            z-index: 10;
+            
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.9);
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+      
+      .tweet-actions-wrapper {
+        @include flex-between;
+        align-items: center;
+        margin-top: $spacing-sm;
+        padding-top: $spacing-sm;
+        border-top: 1px solid $color-border;
+        width: 100%;
+        
+        @include mobile {
+          flex-wrap: wrap;
+          gap: $spacing-sm;
+          align-items: center;
+        }
+      }
+      
+      .tweet-actions {
+        @include flex-start;
+        gap: $spacing-md;
+        min-width: 0;
+        flex-wrap: wrap;
+        
+        @include mobile {
+          gap: $spacing-sm;
+        }
+        
+        .action-btn {
+          @include flex-center;
+          color: $color-primary;
+          background: transparent;
+          padding: $spacing-sm;
+          border-radius: $radius-full;
+          transition: background-color $transition-base;
+          cursor: pointer;
+          position: relative;
+          
+          &:hover {
+            background-color: rgba($color-primary, 0.1);
+          }
+          
+          img {
+            @include icon-size(20px);
+            fill: currentColor;
+          }
+          
+          &[data-action="gif"] {
+            font-size: $font-size-sm;
+            font-weight: $font-weight-bold;
+          }
+          
+          input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+          }
+        }
+      }
+      
+      .desktop-tweet-btn {
+        @include button-primary;
+        padding: $spacing-sm $spacing-lg;
+        font-size: $font-size-base;
+        min-width: 80px;
+        
+        @include mobile {
+          display: none;
+        }
+        
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+      
+      .mobile-tweet-btn-bottom {
+        @include button-primary;
+        padding: $spacing-sm $spacing-lg;
+        font-size: $font-size-base;
+        min-width: 80px;
+        margin-left: auto;
+        
+        @include desktop {
+          display: none;
+        }
+        
+        @include mobile {
+          display: block;
+          flex-shrink: 0;
+        }
+        
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+body.compose-open {
+  overflow: hidden;
+}
+
+body.compose-open .tweet-box {
+  @include mobile {
+    display: block;
+  }
+}
+
+.floating-tweet-box-icon {
+  @include desktop {
+    display: none;
+  }
+  
+  @include mobile {
+    position: fixed;
+    bottom: $spacing-xl;
+    right: $spacing-lg;
+    width: 56px;
+    height: 56px;
+    border-radius: $radius-full;
+    background-color: $color-primary;
+    @include flex-center;
+    color: $color-text-primary;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: $z-index-floating;
+    cursor: pointer;
+    transition: all $transition-base;
+    border: none;
+    
+    &:hover {
+      background-color: $color-primary-hover;
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+    
+    &:active {
+      transform: scale(0.95);
+    }
+    
+    img {
+      @include icon-size(24px);
+      fill: currentColor;
+    }
+  }
+}
+
+.tweet-btn {
+  @include button-primary;
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-base;
+  min-width: 80px;
+  
+  @include mobile {
+    display: none;
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
