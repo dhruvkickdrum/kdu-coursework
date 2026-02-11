@@ -1,0 +1,7 @@
+@use '../abstracts' as *;
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($grid-card-min, 1fr));
+  gap: $space-lg;
+}

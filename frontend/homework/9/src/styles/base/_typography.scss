@@ -1,0 +1,27 @@
+@use '../abstracts' as *;
+
+body {
+  font-family: $font-body;
+  color: var(--color-ink);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-display;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+h1 {
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 2.6vw, 2.4rem);
+}
+
+p {
+  color: var(--color-muted);
+}
