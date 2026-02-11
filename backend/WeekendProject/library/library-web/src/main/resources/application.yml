@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: library-v2
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+logging:
+  level:
+    root: INFO
+    com.dhruv.library: DEBUG
+
+  pattern:
+    console: >
+      %d{yyyy-MM-dd HH:mm:ss.SSS}
+      [%thread]
+      %-5level
+      %logger{36}
+      correlationId=%X{correlationId}
+      - %msg%n
