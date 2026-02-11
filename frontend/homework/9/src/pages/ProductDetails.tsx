@@ -17,6 +17,8 @@ export default function ProductDetails() {
   const dispatch = useAppDispatch();
   const { selectedProduct, loading, error } = useAppSelector((state) => state.products);
   const productId = useMemo(() => Number(id), [id])
+  const [addedToCart, setAddedToCart] = useState(false);
+
 
   useEffect(() => {
     if(!id || Number.isNaN(productId)) {
@@ -32,6 +34,7 @@ export default function ProductDetails() {
   const handleAddToCart = useCallback(() => {
     if(selectedProduct) {
       dispatch(addToCart(selectedProduct));
+      setAddedToCart(true);
     }
   }, [dispatch, selectedProduct])
 
@@ -164,8 +167,8 @@ export default function ProductDetails() {
             </div>
           )}
           <div className="details_actions">
-            <button className='btn btn-primary' type='button' onClick={handleAddToCart}>Add to cart</button>
-          </div>
+            <button className='btn btn-primary' type='button' onClick={handleAddToCart} disabled={addedToCart}>{addedToCart ? 'Added to Cart!' : 'Add to Cart'}</button>
+          </div>  
         </div>
       </div>
       <div className="details_reviews">

@@ -43,7 +43,7 @@ export default function Navbar() {
             <NavLink to="/cart" className={({ isActive }) => `navbar_link ${isActive ? 'is-active' : ''}`}>
               <span className='navbar_cart'>
                 Cart
-                <span className='navbar-badge' aria-label={`Cart items ${cartCount}`}>
+                <span className='navbar_badge' aria-label={`Cart items ${cartCount}`}>
                   {cartCount}
                 </span>
               </span>
