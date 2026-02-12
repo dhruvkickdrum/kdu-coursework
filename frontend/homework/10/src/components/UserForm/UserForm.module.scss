@@ -1,0 +1,115 @@
+.formContainer {
+  background-color: $bg-primary;
+  border-radius: $border-radius-xl;
+  padding: $spacing-xl;
+  box-shadow: $shadow-lg;
+  border: 1px solid $border-light;
+}
+
+.formTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin-bottom: $spacing-xl;
+  text-align: center;
+}
+
+.form {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.formGroup {
+  @include flex-column;
+  gap: $spacing-xs;
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+}
+
+.required {
+  color: $danger-color;
+}
+
+.input {
+  @include input-base;
+
+  &Error {
+    border-color: $danger-color;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($danger-color, 0.1);
+    }
+  }
+}
+
+.errorMessage {
+  font-size: $font-size-xs;
+  color: $danger-color;
+  margin-top: $spacing-xs;
+  display: block;
+}
+
+.alert {
+  @include flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-md;
+  background-color: $error-bg;
+  border: 1px solid $error-color;
+  border-radius: $border-radius-md;
+  color: $error-color;
+  font-size: $font-size-sm;
+
+  &Success {
+    background-color: $success-bg;
+    border-color: $success-color;
+    color: $success-color;
+  }
+}
+
+.alertIcon {
+  flex-shrink: 0;
+  font-size: $font-size-base;
+}
+
+.submitButton {
+  @include button-primary;
+  width: 100%;
+  @include flex-center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-lg;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// Animation for success message
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert {
+  animation: slideIn $transition-base ease-out;
+}

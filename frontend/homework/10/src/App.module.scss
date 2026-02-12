@@ -1,0 +1,32 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.notFound {
+  @include flex-column-center;
+  min-height: 100vh;
+  padding: $spacing-xl;
+  text-align: center;
+  background-color: $bg-secondary;
+
+  h1 {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.homeLink {
+  @include button-primary;
+  text-decoration: none;
+  display: inline-block;
+}

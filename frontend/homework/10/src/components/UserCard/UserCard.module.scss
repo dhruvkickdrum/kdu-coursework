@@ -1,0 +1,90 @@
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.userCard {
+  @include card;
+  @include flex-column;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $border-light;
+
+  &:hover {
+    border-color: $primary-color;
+
+    .userImage {
+      transform: scale(1.05);
+    }
+
+    .viewButton {
+      background-color: $primary-color;
+      color: $text-white;
+    }
+  }
+}
+
+.imageContainer {
+  width: 84px;
+  height: 84px;
+  overflow: hidden;
+  border-radius: $border-radius-md;
+  background-color: $bg-tertiary;
+  margin-bottom: $spacing-md;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.userImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform $transition-slow;
+}
+
+.userInfo {
+  @include flex-column;
+  gap: $spacing-sm;
+  flex: 1;
+}
+
+.userName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin: 0 0 $spacing-sm 0;
+  @include line-clamp(2);
+}
+
+.userDetail {
+  @include flex-start;
+  gap: $spacing-sm;
+  font-size: $font-size-sm;
+  color: $text-secondary;
+
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+.detailText {
+  @include truncate;
+  flex: 1;
+}
+
+.viewButton {
+  @include flex-between;
+  margin-top: $spacing-md;
+  padding: $spacing-sm $spacing-md;
+  background-color: $bg-tertiary;
+  border-radius: $border-radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $primary-color;
+  transition: all $transition-base;
+}
