@@ -1,0 +1,221 @@
+.container {
+  min-height: 100vh;
+  background-color: $bg-secondary;
+  padding: $spacing-xl $spacing-md;
+
+  @include respond-to('md') {
+    padding: $spacing-2xl $spacing-lg;
+  }
+}
+
+.content {
+  @include container;
+  max-width: 1200px;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.headerRight {
+  @include flex-start;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.backButton {
+  @include button-secondary;
+  
+  &:hover {
+    background-color: $primary-light;
+    color: $primary-color;
+  }
+}
+
+.fetchingBadge {
+  @include badge($warning-color, $text-white);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.profileCard {
+  background-color: $bg-primary;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-xl;
+  overflow: hidden;
+  border: 1px solid $border-light;
+
+  @include respond-to('lg') {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+  }
+}
+
+.imageSection {
+  background: linear-gradient(135deg, $primary-light 0%, rgba($primary-color, 0.1) 100%);
+  padding: $spacing-xl;
+  @include flex-center;
+
+  @include respond-to('lg') {
+    padding: $spacing-2xl;
+  }
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1;
+  border-radius: $border-radius-xl;
+  overflow: hidden;
+  box-shadow: $shadow-2xl;
+  border: 4px solid $bg-primary;
+}
+
+.userImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infoSection {
+  padding: $spacing-xl;
+
+  @include respond-to('md') {
+    padding: $spacing-2xl;
+  }
+}
+
+.userName {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin: 0 0 $spacing-sm 0;
+
+  @include respond-to('md') {
+    font-size: 2.5rem;
+  }
+}
+
+.maidenName {
+  font-size: $font-size-lg;
+  color: $text-secondary;
+  font-style: italic;
+  margin: 0 0 $spacing-xl 0;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.infoCard {
+  background-color: $bg-secondary;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  border: 1px solid $border-light;
+  transition: all $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    border-color: $border-color;
+  }
+}
+
+.infoTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin: 0 0 $spacing-md 0;
+  padding-bottom: $spacing-sm;
+  border-bottom: 2px solid $border-color;
+}
+
+.infoList {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.infoItem {
+  @include flex-start;
+  gap: $spacing-md;
+}
+
+.infoIcon {
+  font-size: $font-size-xl;
+  flex-shrink: 0;
+}
+
+.infoText {
+  @include flex-column;
+  gap: $spacing-xs;
+  flex: 1;
+  min-width: 0; // Allow text truncation
+}
+
+.infoLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.infoValue {
+  font-size: $font-size-base;
+  color: $text-primary;
+  word-break: break-word;
+}
+
+a.infoValue {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $primary-hover;
+    text-decoration: underline;
+  }
+}
+
+// Error State
+.errorContainer {
+  @include flex-center;
+  min-height: 100vh;
+  padding: $spacing-lg;
+}
+
+.errorContent {
+  @include flex-column-center;
+  max-width: 500px;
+  padding: $spacing-3xl;
+  background-color: $bg-primary;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-xl;
+  text-align: center;
+}
+
+.errorIcon {
+  font-size: 4rem;
+  margin-bottom: $spacing-lg;
+}
+
+.errorTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $danger-color;
+  margin: 0 0 $spacing-md 0;
+}
+
+.errorMessage {
+  font-size: $font-size-base;
+  color: $text-secondary;
+  margin: 0 0 $spacing-xl 0;
+  line-height: $line-height-relaxed;
+}

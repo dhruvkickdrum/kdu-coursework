@@ -1,0 +1,122 @@
+.container {
+  min-height: 100vh;
+  background-color: $bg-secondary;
+}
+
+.header {
+  background: linear-gradient(135deg, $primary-color 0%, $primary-hover 100%);
+  color: $text-white;
+  padding: $spacing-3xl $spacing-lg;
+  box-shadow: $shadow-lg;
+}
+
+.headerContent {
+  @include container;
+  @include flex-column;
+  gap: $spacing-md;
+  text-align: center;
+}
+
+.title {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  margin: 0;
+
+  @include respond-to('md') {
+    font-size: 3rem;
+  }
+}
+
+.subtitle {
+  font-size: $font-size-lg;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.userCount {
+  @include flex-center;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.countBadge {
+  @include badge($bg-primary, $primary-color);
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+}
+
+.refreshingBadge {
+  @include badge($warning-color, $text-white);
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-sm;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.content {
+  @include container;
+  padding-top: $spacing-3xl;
+  padding-bottom: $spacing-3xl;
+}
+
+.formSection {
+  margin-bottom: $spacing-3xl;
+}
+
+.userSection {
+  @include flex-column;
+  gap: $spacing-xl;
+}
+
+.sectionTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin: 0;
+}
+
+.userGrid {
+  @include grid-responsive(220px, $spacing-md);
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+// Empty State
+.emptyState {
+  @include flex-column-center;
+  padding: $spacing-3xl;
+  background-color: $bg-primary;
+  border-radius: $border-radius-xl;
+  border: 2px dashed $border-color;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: $spacing-lg;
+  opacity: 0.5;
+}
+
+.emptyTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin: 0 0 $spacing-sm 0;
+}
+
+.emptyMessage {
+  font-size: $font-size-base;
+  color: $text-secondary;
+  margin: 0;
+}

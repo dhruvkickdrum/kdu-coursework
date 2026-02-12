@@ -1,0 +1,26 @@
+.badge {
+  @include flex-start;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  transition: all $transition-base;
+  width: fit-content;
+
+  &.cached {
+    background-color: $success-bg;
+    color: $success-color;
+    border: 1px solid rgba($success-color, 0.3);
+  }
+
+  &.fresh {
+    background-color: $primary-light;
+    color: $primary-color;
+    border: 1px solid rgba($primary-color, 0.3);
+  }
+}
+
+.text {
+  line-height: 1;
+}
