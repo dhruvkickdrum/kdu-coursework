@@ -1,0 +1,131 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.bookingPage {
+  min-height: 100vh;
+  background-color: $background-light;
+  padding-bottom: $spacing-xxl;
+  position: relative;
+}
+
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($white, 0.95);
+  @include flex-center;
+  z-index: $z-index-modal;
+}
+
+.container {
+  max-width: $max-content-width;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+
+  @include mobile-only {
+    padding: 0 $spacing-md;
+  }
+}
+
+.pageHeader {
+  text-align: center;
+  padding: $spacing-xxl 0 $spacing-xl;
+
+  @include mobile-only {
+    padding: $spacing-xl 0 $spacing-lg;
+  }
+}
+
+.pageTitle {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin-bottom: $spacing-sm;
+
+  @include mobile-only {
+    font-size: $font-size-xl;
+  }
+}
+
+.pageSubtitle {
+  font-size: $font-size-base;
+  color: $text-secondary;
+
+  @include mobile-only {
+    font-size: $font-size-sm;
+  }
+}
+
+.errorBanner {
+  background-color: lighten($error-color, 40%);
+  border: 2px solid $error-color;
+  border-radius: $border-radius-md;
+  padding: $spacing-md $spacing-lg;
+  margin-bottom: $spacing-lg;
+  @include flex-center;
+  gap: $spacing-md;
+  color: $error-color;
+  font-weight: $font-weight-semibold;
+  @include fade-in;
+
+  @include mobile-only {
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-sm;
+  }
+}
+
+.errorIcon {
+  font-size: $font-size-lg;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: $spacing-xl;
+  align-items: start;
+
+  @include mobile-only {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.mainContent {
+  @include flex-column;
+}
+
+.sidebar {
+  margin-bottom: $spacing-md;
+  @include sticky-top($header-height + $spacing-lg);
+  @include mobile-only {
+    position: static;
+    order: -1;
+  }
+}
+
+.submitButton {
+  @include button-primary;
+  width: 100%;
+  font-size: $font-size-lg;
+  padding: $spacing-lg $spacing-xl;
+  margin-top: $spacing-xl;
+  @include flex-center;
+  gap: $spacing-md;
+
+  &:disabled {
+    background-color: $disabled-color;
+    cursor: not-allowed;
+    
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  @include mobile-only {
+    font-size: $font-size-base;
+    padding: $spacing-md $spacing-lg;
+  }
+}

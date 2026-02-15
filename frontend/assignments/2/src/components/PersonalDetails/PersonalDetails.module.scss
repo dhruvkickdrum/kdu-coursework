@@ -1,0 +1,92 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.personalDetails {
+  background-color: $white;
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-sm;
+  margin-top: $spacing-lg;
+
+  @include mobile-only {
+    padding: $spacing-lg;
+  }
+}
+
+.title {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $text-secondary;
+  margin-bottom: $spacing-lg;
+}
+
+.formRow {
+  @include grid(2, $spacing-md);
+  margin-bottom: $spacing-md;
+
+  @include mobile-only {
+    @include grid(1, $spacing-md);
+  }
+}
+
+.formGroup {
+  position: relative;
+
+  &.addressGroup {
+    @include mobile-only {
+      grid-column: 1;
+    }
+  }
+}
+
+.input {
+  @include input-base;
+
+  &.error {
+    border-color: $error-color;
+  }
+}
+
+.errorText {
+  color: $error-color;
+  font-size: $font-size-xs;
+  margin-top: $spacing-xs;
+  display: block;
+}
+
+.termsSection {
+  margin-top: $spacing-lg;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $border-color;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: $spacing-md;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: $primary-color;
+  flex-shrink: 0;
+}
+
+.checkboxText {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  line-height: 1.5;
+}
+
+.link {
+  color: $primary-color;
+  text-decoration: underline;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: darken($primary-color, 10%);
+  }
+}

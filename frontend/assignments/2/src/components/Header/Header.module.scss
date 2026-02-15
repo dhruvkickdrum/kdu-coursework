@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.header {
+    @include sticky-top(0);
+    background-color: $white;
+    box-shadow: $shadow-sm;
+    padding: $spacing-lg 0;
+    z-index: $z-index-sticky;
+
+    &_container {
+        @include flex-between;
+        max-width: $max-content-width;
+        margin: 0 auto;
+        padding: 0 $spacing-lg;
+
+        @include mobile-only {
+            padding: 0 $spacing-md;
+        }
+    }
+
+    &_logo {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $primary-color;
+        margin: 0;
+    }
+
+    &_phone {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-semibold;
+        color: $text-primary;
+        text-decoration: none;
+        transition: color $transition-fast;
+
+        &:hover {
+            color: $primary-color;
+        }
+
+        @include mobile-only {
+            font-size: $font-size-sm;
+        } 
+    }
+}

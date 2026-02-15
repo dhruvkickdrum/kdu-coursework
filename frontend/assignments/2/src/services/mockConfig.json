@@ -1,0 +1,108 @@
+{
+  "cleaningTypes": [
+    {
+      "id": "STANDARD",
+      "name": "Standard",
+      "basePrice": 89,
+      "description": "Regular cleaning for everyday maintenance"
+    },
+    {
+      "id": "DEEP",
+      "name": "Deep",
+      "basePrice": 149,
+      "description": "Thorough deep cleaning for your home"
+    },
+    {
+      "id": "MOVE_IN_OUT",
+      "name": "Move In/Out",
+      "basePrice": 199,
+      "description": "Complete cleaning for moving in or out"
+    }
+  ],
+  "frequencies": [
+    {
+      "id": "ONE_TIME",
+      "name": "One Time",
+      "discount": 0
+    },
+    {
+      "id": "WEEKLY",
+      "name": "Weekly",
+      "discount": 15
+    },
+    {
+      "id": "BI_WEEKLY",
+      "name": "Bi-Weekly",
+      "discount": 10
+    },
+    {
+      "id": "MONTHLY",
+      "name": "Monthly",
+      "discount": 5
+    }
+  ],
+  "extraOptions": [
+    {
+      "id": "CLEAN_OVEN",
+      "name": "Clean Oven",
+      "price": 25
+    },
+    {
+      "id": "CLEAN_WINDOWS",
+      "name": "Clean Windows",
+      "price": 35
+    },
+    {
+      "id": "CLEAN_FRIDGE",
+      "name": "Clean Fridge",
+      "price": 30
+    },
+    {
+      "id": "IRONING",
+      "name": "Ironing",
+      "price": 20
+    }
+  ],
+  "timeSlots": [
+    {
+      "id": "slot-1",
+      "time": "7:00 AM",
+      "available": true
+    },
+    {
+      "id": "slot-2",
+      "time": "9:00 AM",
+      "available": true
+    },
+    {
+      "id": "slot-3",
+      "time": "11:00 AM",
+      "available": true
+    },
+    {
+      "id": "slot-4",
+      "time": "1:00 PM",
+      "available": true
+    },
+    {
+      "id": "slot-5",
+      "time": "3:00 PM",
+      "available": true
+    },
+    {
+      "id": "slot-6",
+      "time": "5:00 PM",
+      "available": true
+    },
+    {
+      "id": "slot-7",
+      "time": "7:00 PM",
+      "available": false
+    },
+    {
+      "id": "slot-8",
+      "time": "9:00 PM",
+      "available": false
+    }
+  ]
+}

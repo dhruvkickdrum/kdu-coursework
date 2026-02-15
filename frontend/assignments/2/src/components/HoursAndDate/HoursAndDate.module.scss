@@ -1,0 +1,129 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.hoursAndDate {
+  background-color: $white;
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-sm;
+  margin-top: $spacing-lg;
+
+  @include mobile-only {
+    padding: $spacing-lg;
+  }
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin-bottom: $spacing-lg;
+
+  @include mobile-only {
+    font-size: $font-size-base;
+  }
+}
+
+.section {
+  margin-bottom: $spacing-xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.label {
+  display: block;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $text-secondary;
+  margin-bottom: $spacing-md;
+}
+
+.hoursControl {
+  @include flex-center;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-sm;
+}
+
+.hoursButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $background-light;
+  color: $text-primary;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  @include flex-center;
+  cursor: pointer;
+  transition: all $transition-fast;
+  border: 2px solid $border-color;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-color;
+    color: $white;
+    border-color: $primary-color;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.hoursValue {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $primary-color;
+  min-width: 50px;
+  text-align: center;
+}
+
+.hint {
+  font-size: $font-size-sm;
+  color: $text-light;
+  font-style: italic;
+  text-align: center;
+  margin-top: $spacing-sm;
+}
+
+.dateInput {
+  @include input-base;
+  max-width: 250px;
+  cursor: pointer;
+
+  @include mobile-only {
+    max-width: 100%;
+  }
+}
+
+.timeSlots {
+  @include grid(4, $spacing-md);
+
+  @include mobile-only {
+    @include grid(2, $spacing-sm);
+  }
+}
+
+.timeSlot {
+  @include button-secondary;
+  padding: $spacing-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+
+  &.active {
+    background-color: $primary-color;
+    color: $white;
+    border-color: $primary-color;
+  }
+
+  &.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background-color: $background-light;
+  }
+
+  @include mobile-only {
+    padding: $spacing-sm;
+    font-size: $font-size-sm;
+  }
+}
