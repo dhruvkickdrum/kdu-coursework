@@ -1,0 +1,257 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.cleaningPreferences {
+  background-color: $white;
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-sm;
+
+  @include mobile-only {
+    padding: $spacing-lg;
+  }
+}
+
+.header {
+  background-color: $primary-color;
+  color: $white;
+  padding: $spacing-md $spacing-lg;
+  margin: (-$spacing-xl) (-$spacing-xl) $spacing-xl;
+  border-radius: $border-radius-lg $border-radius-lg 0 0;
+  font-size: $font-size-lg;
+
+  @include mobile-only {
+    margin: (-$spacing-lg) (-$spacing-lg) $spacing-lg;
+    padding: $spacing-md;
+    font-size: $font-size-base;
+  }
+}
+
+.section {
+  margin-bottom: $spacing-xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.label {
+  display: block;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $text-secondary;
+  margin-bottom: $spacing-md;
+}
+
+.optional {
+  font-weight: $font-weight-normal;
+  color: $text-light;
+}
+
+.optionGroup {
+  @include grid(3, $spacing-md);
+
+  @include mobile-only {
+    @include grid(2, $spacing-sm);
+  }
+}
+
+.optionButton {
+  @include button-secondary;
+  padding: $spacing-md;
+  position: relative;
+  text-transform: uppercase;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.5px;
+
+  &.active {
+    background-color: $primary-color;
+    color: $white;
+    border-color: $primary-color;
+  }
+
+  &.recommended::after {
+    content: '⭐';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: $font-size-lg;
+  }
+
+  @include mobile-only {
+    padding: $spacing-sm;
+    font-size: $font-size-xs;
+  }
+}
+
+.discount {
+  display: block;
+  font-size: $font-size-xs;
+  margin-top: $spacing-xs;
+  color: $secondary-color;
+
+  .active & {
+    color: $white;
+  }
+}
+
+.roomCounter {
+  @include grid(2, $spacing-lg);
+
+  @include mobile-only {
+    @include grid(2, $spacing-md);
+  }
+}
+
+.counterCard {
+  @include card;
+  @include flex-center;
+  @include flex-column;
+  padding: $spacing-lg;
+  border: 2px solid $border-color;
+
+  @include mobile-only {
+    padding: $spacing-md;
+  }
+}
+
+.counterIcon {
+  font-size: 3rem;
+  margin-bottom: $spacing-sm;
+
+  @include mobile-only {
+    font-size: 2rem;
+  }
+}
+
+.counterLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $text-light;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: $spacing-md;
+
+  @include mobile-only {
+    font-size: 0.625rem;
+  }
+}
+
+.counterControls {
+  @include flex-center;
+  gap: $spacing-lg;
+
+  @include mobile-only {
+    gap: $spacing-md;
+  }
+}
+
+.counterButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: $background-light;
+  color: $text-primary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  @include flex-center;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-color;
+    color: $white;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  @include mobile-only {
+    width: 28px;
+    height: 28px;
+    font-size: $font-size-base;
+  }
+}
+
+.counterValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $primary-color;
+  min-width: 30px;
+  text-align: center;
+
+  @include mobile-only {
+    font-size: $font-size-lg;
+  }
+}
+
+.extrasGrid {
+  @include grid(4, $spacing-md);
+
+  @include mobile-only {
+    @include grid(2, $spacing-sm);
+  }
+}
+
+.extraCard {
+  @include card;
+  @include flex-center;
+  @include flex-column;
+  padding: $spacing-md;
+  border: 2px solid $border-color;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    border-color: $primary-color;
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    color: $white;
+
+    .extraPrice {
+      color: $white;
+    }
+  }
+
+  @include mobile-only {
+    padding: $spacing-sm;
+  }
+}
+
+.extraIcon {
+  font-size: 2rem;
+  margin-bottom: $spacing-sm;
+
+  @include mobile-only {
+    font-size: 1.5rem;
+  }
+}
+
+.extraName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  text-align: center;
+  margin-bottom: $spacing-xs;
+
+  @include mobile-only {
+    font-size: $font-size-xs;
+  }
+}
+
+.extraPrice {
+  font-size: $font-size-xs;
+  color: $text-light;
+}
+
+.textarea {
+  @include input-base;
+  resize: vertical;
+  min-height: 100px;
+  font-family: $font-family;
+}

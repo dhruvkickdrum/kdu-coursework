@@ -1,0 +1,131 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.paymentMethod {
+  background-color: $white;
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-sm;
+  margin-top: $spacing-lg;
+
+  @include mobile-only {
+    padding: $spacing-lg;
+  }
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+
+  @include mobile-only {
+    @include flex-column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+
+  @include mobile-only {
+    font-size: $font-size-base;
+  }
+}
+
+.securityBadge {
+  @include flex-center;
+  gap: $spacing-sm;
+  background-color: lighten($success-color, 45%);
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  border: 1px solid $success-color;
+}
+
+.lockIcon {
+  font-size: $font-size-base;
+}
+
+.securityText {
+  font-size: $font-size-xs;
+  color: $success-color;
+  font-weight: $font-weight-semibold;
+
+  @include mobile-only {
+    font-size: 0.625rem;
+  }
+}
+
+.section {
+  margin-bottom: $spacing-lg;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sectionTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $text-secondary;
+  margin-bottom: $spacing-md;
+}
+
+.formGroup {
+  margin-bottom: $spacing-md;
+  position: relative;
+}
+
+.input {
+  @include input-base;
+
+  &.error {
+    border-color: $error-color;
+  }
+}
+
+.cardNumber {
+  padding-right: 60px;
+}
+
+.cardBrand {
+  position: absolute;
+  right: $spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: $font-weight-bold;
+  color: $primary-color;
+  font-size: $font-size-sm;
+}
+
+.cardDetailsRow {
+  @include grid(3, $spacing-md);
+
+  @include mobile-only {
+    @include grid(1, $spacing-md);
+  }
+}
+
+.expiryGroup {
+  @include flex-center;
+  gap: $spacing-sm;
+}
+
+.expiryInput {
+  flex: 1;
+  text-align: center;
+}
+
+.separator {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $text-secondary;
+}
+
+.errorText {
+  color: $error-color;
+  font-size: $font-size-xs;
+  margin-top: $spacing-xs;
+  display: block;
+}

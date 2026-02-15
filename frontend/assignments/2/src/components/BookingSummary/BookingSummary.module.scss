@@ -1,0 +1,101 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.bookingSummary {
+  background-color: $white;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+
+  @include mobile-only {
+    position: static;
+    margin-top: $spacing-lg;
+  }
+}
+
+.header {
+  background-color: $primary-color;
+  color: $white;
+  padding: $spacing-md $spacing-lg;
+  font-size: $font-size-lg;
+  margin: 0;
+
+  @include mobile-only {
+    font-size: $font-size-base;
+    padding: $spacing-md;
+  }
+}
+
+.content {
+  padding: $spacing-lg;
+
+  @include mobile-only {
+    padding: $spacing-md;
+  }
+}
+
+.summaryItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  padding: $spacing-md 0;
+  border-bottom: 1px solid $border-color;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.icon {
+  font-size: $font-size-lg;
+  flex-shrink: 0;
+}
+
+.text {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.extrasList {
+  @include flex-column;
+  gap: $spacing-xs;
+}
+
+.extraItem {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  display: block;
+}
+
+.totalSection {
+  @include flex-between;
+  background-color: $background-light;
+  padding: $spacing-lg;
+  margin-top: $spacing-md;
+
+  @include mobile-only {
+    padding: $spacing-md;
+  }
+}
+
+.totalLabel {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+
+  @include mobile-only {
+    font-size: $font-size-base;
+  }
+}
+
+.totalAmount {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $primary-color;
+
+  @include mobile-only {
+    font-size: $font-size-xl;
+  }
+}
