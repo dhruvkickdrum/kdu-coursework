@@ -1,0 +1,136 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.container {
+  @include card;
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-lg;
+  width: min(100%, 34rem);
+  border: 1px solid rgba($text-light, 0.35);
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+}
+
+.pageTitle {
+  color: $primary-color;
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+}
+
+.banner {
+  width: 100%;
+  padding: $spacing-md;
+  text-align: center;
+  color: $white;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  border: 2px solid darken($primary-color, 10%);
+  border-radius: $border-radius-lg;
+  background: linear-gradient(180deg, rgba($primary-color, 0.9), rgba($primary-color, 0.75));
+}
+
+.card {
+  @include flex-column;
+  gap: $spacing-md;
+  width: 100%;
+  background-color: $white;
+  border: 1px solid rgba($text-light, 0.45);
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+}
+
+.registrationId {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid $border-color;
+}
+
+.details {
+  @include flex-column;
+  gap: $spacing-sm;
+  color: $text-secondary;
+  font-size: $font-size-base;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid $border-color;
+}
+
+.label {
+  color: $text-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.statusRow {
+  @include flex-center;
+  gap: $spacing-md;
+  justify-content: flex-start;
+}
+
+.statusTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+}
+
+.checking {
+  @include flex-center;
+  gap: $spacing-sm;
+  color: $text-secondary;
+  font-size: $font-size-lg;
+  p {
+    margin-left: $spacing-sm;
+  }
+}
+
+.dot {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background-color: rgba($text-light, 0.5);
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+.dotOne {
+  animation-delay: 0s;
+}
+
+.dotTwo {
+  animation-delay: 0.2s;
+}
+
+.dotThree {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(0.75);
+    background-color: rgba($text-light, 0.5);
+  }
+
+  50% {
+    transform: scale(1);
+    background-color: $primary-color;
+  }
+}
+
+@include mobile-only {
+  .container {
+    padding: $spacing-md;
+  }
+
+  .pageTitle {
+    font-size: $font-size-xl;
+  }
+
+  .banner {
+    font-size: $font-size-lg;
+  }
+
+  .checking {
+    font-size: $font-size-base;
+  }
+}

@@ -1,0 +1,124 @@
+@import './variables';
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+@mixin mobile-only { 
+  @media (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin flex-center { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column { 
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin button-base {
+  padding: $spacing-md $spacing-lg;
+  border: none;
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: all $transition-normal;
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: $secondary-color;
+  color: $white;
+  
+  &:hover:not(:disabled) {
+    background-color: darken($secondary-color, 10%);
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+
+@mixin input-base {
+  padding: $spacing-md;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  font-family: $font-family;
+  width: 100%;
+  transition: border-color $transition-fast;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+  }
+  
+  &::placeholder {
+    color: $text-light;
+  }
+  
+  &.error {
+    border-color: $error-color;
+  }
+}
+
+@mixin card {
+  background-color: $background-light;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-sm;
+}
+
+@mixin text-heading {
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin: 0;
+}
+
+@mixin slide-up {
+  animation: slideUp $transition-normal;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@mixin spinner($size: 40px, $color: $primary-color) { 
+  width: $size;
+  height: $size;
+  border: 4px solid rgba($color, 0.2);
+  border-top-color: $color;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
