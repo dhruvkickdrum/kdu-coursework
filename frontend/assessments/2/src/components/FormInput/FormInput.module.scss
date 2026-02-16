@@ -1,0 +1,41 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.form_group {
+  @include flex-column;
+  width: 100%;
+  gap: $spacing-sm;
+}
+
+.label {
+  color: $text-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+}
+
+.field {
+  @include input-base;
+  background-color: $white;
+  color: $text-primary;
+  min-height: 2.75rem;
+}
+
+.textarea {
+  min-height: 8rem;
+  resize: vertical;
+  line-height: 1.4;
+}
+
+.select {
+  cursor: pointer;
+}
+
+.fieldError {
+  border-color: $error-color;
+}
+
+.errorText {
+  color: $error-color;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+}

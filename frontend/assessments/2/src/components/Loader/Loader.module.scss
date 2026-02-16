@@ -1,0 +1,31 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.loaderContainer {
+  @include flex-center;
+  @include flex-column;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+}
+
+.spinner {
+  @include spinner;
+
+  &.small {
+    @include spinner(24px);
+  }
+
+  &.medium {
+    @include spinner(40px);
+  }
+
+  &.large {
+    @include spinner(60px);
+  }
+}
+
+.message {
+  color: $text-secondary;
+  font-size: $font-size-sm;
+  text-align: center;
+}
